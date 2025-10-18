@@ -1,0 +1,2264 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bittensor Subnet Updater</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+        .subnets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+        .subnet-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .subnet-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .subnet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .subnet-id {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+        .status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        .status.active {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.inactive {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .status.unknown {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .subnet-info {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .subnet-info div {
+            margin: 5px 0;
+        }
+        .price {
+            font-weight: bold;
+            color: #28a745;
+        }
+        .owner {
+            font-family: monospace;
+            font-size: 0.8em;
+            word-break: break-all;
+        }
+        .view-profile {
+            margin-top: 15px;
+        }
+        .view-profile a {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .view-profile a:hover {
+            background: #5a6fd8;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+        .refresh-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            font-size: 0.9em;
+        }
+        .refresh-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Bittensor Subnet Updater</h1>
+            <p>Live subnet data from the Bittensor blockchain</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">129</div>
+                <div class="stat-label">Total Subnets</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">125</div>
+                <div class="stat-label">Active Subnets</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Inactive Subnets</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1760822846</div>
+                <div class="stat-label">Last Updated</div>
+            </div>
+        </div>
+        
+        <div class="subnets-grid">
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 0</div>
+                    <div class="status inactive">⚠️ Inactive</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 0</div>
+                    <div><strong>Price:</strong> <span class="price">1.000000 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5C4hrfjw9DjXZTzV3MwzrrAr9P1MJhSrvWGWqi1eSuyUpnhM</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/0_subnet-0.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 1</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 1</div>
+                    <div><strong>Price:</strong> <span class="price">0.009940 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HCFWvRqzSHWRPecN7q8J6c7aKQnrCZTMHstPv39xL1wgDHh</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/1_subnet-1.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 2</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 2</div>
+                    <div><strong>Price:</strong> <span class="price">0.003604 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5CFxLBvpyQq3TCP7zLcu8dLcPBxhA6MdLvXiCyvJVojuK17J</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/2_subnet-2.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 3</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 3</div>
+                    <div><strong>Price:</strong> <span class="price">0.026443 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HdTZQ6UXD7MWcRsMeExVwqAKKo4UwomUd662HvtXiZXkxmv</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/3_subnet-3.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 4</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 4</div>
+                    <div><strong>Price:</strong> <span class="price">0.045325 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Hp18g9P8hLGKp9W3ZDr4bvJwba6b6bY3P2u3VdYf8yMR8FM</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/4_subnet-4.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 5</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 5</div>
+                    <div><strong>Price:</strong> <span class="price">0.024242 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5GZ2KuT2TtLbYTtsMcgAtazo6KQ4bc57ykZgyQv9oit3y7iq</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/5_subnet-5.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 6</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 6</div>
+                    <div><strong>Price:</strong> <span class="price">0.003202 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5CfSg4e23Z3aTXvc2XZie8ZE1xkqRPoyVRFdWUuyyjGxJrMA</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/6_subnet-6.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 7</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 7</div>
+                    <div><strong>Price:</strong> <span class="price">0.002352 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EhJtTLTS8yrcStrcdBrynUmZHf8dmjFtNdoELyjETJXAmSr</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/7_subnet-7.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 8</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 8</div>
+                    <div><strong>Price:</strong> <span class="price">0.028434 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5F6tnxzAAxbhaWRmeUmB63JEM3VXBNSmqb3AwYJVDStQjw8y</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/8_subnet-8.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 9</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 9</div>
+                    <div><strong>Price:</strong> <span class="price">0.019363 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FsbubeciqtB5Nik3umL2iD4fG8FcC9GbT9nHJfXMj4mJJZ9</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/9_subnet-9.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 10</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 10</div>
+                    <div><strong>Price:</strong> <span class="price">0.006166 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EvNESR7DfSMmdwJ3crtBW1ENAhq3f99X4FCbTi1hDUNCWAW</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/10_subnet-10.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 11</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 11</div>
+                    <div><strong>Price:</strong> <span class="price">0.010841 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EtM9iXMAYRsmt6aoQAoWNDX6yaBnjhmnEQhWKv8HpwkVtML</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/11_subnet-11.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 12</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 12</div>
+                    <div><strong>Price:</strong> <span class="price">0.006156 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5ELzhHvgUqmnAYs74vFWjMMehXNeHkRtkreAa3g8QQS96PCp</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/12_subnet-12.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 13</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 13</div>
+                    <div><strong>Price:</strong> <span class="price">0.008755 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HBswBt1A9Ahx6U76abXXGd7VmabmCNBGhSK2vrP71GSxtgZ</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/13_subnet-13.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 14</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 14</div>
+                    <div><strong>Price:</strong> <span class="price">0.010987 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Cf4LPRv6tiyuFsfLRQaFYEEn3zJRGi4bAE9DwbbKmbCSHpV</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/14_subnet-14.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 15</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 15</div>
+                    <div><strong>Price:</strong> <span class="price">0.001997 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FNJuoghxzELCwcNoRTS8n6L8acwgpN1RYRPSJwNxbDWV8Dm</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/15_subnet-15.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 16</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 16</div>
+                    <div><strong>Price:</strong> <span class="price">0.002641 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FRfiDbLxWAiac97ig4c5mgkb5yxSUVJDijmwJxw5RE5Ew9g</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/16_subnet-16.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 17</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 17</div>
+                    <div><strong>Price:</strong> <span class="price">0.013105 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5E7eSeRr2aHzCV7SkY4a2Pi5NXHrU4anZz3phEQgn4HCen2B</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/17_subnet-17.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 18</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 18</div>
+                    <div><strong>Price:</strong> <span class="price">0.007528 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HdrwVQQbMa8Wh271PDzvMHmM44wYM5wfnXCW3o97gDisuaY</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/18_subnet-18.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 19</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 19</div>
+                    <div><strong>Price:</strong> <span class="price">0.011395 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5CK49hDJcseEk1V7iB1dmmztdw4igafhxLsVN82VtUVAQRfC</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/19_subnet-19.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 20</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 20</div>
+                    <div><strong>Price:</strong> <span class="price">0.002183 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EALa14jRfwHf69ZbNyFLxsPrZgZ47T2qhYxGjXxRM1qriNk</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/20_subnet-20.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 21</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 21</div>
+                    <div><strong>Price:</strong> <span class="price">0.002133 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5GsHpHeCGhxstoEEZTR64VUashnDP4n7ir7LbNdRfXpkMU7R</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/21_subnet-21.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 22</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 22</div>
+                    <div><strong>Price:</strong> <span class="price">0.002997 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5CUu1QhvrfyMDBELUPJLt4c7uJFbi7TKqDHkS1Zz41oD4dyP</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/22_subnet-22.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 23</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 23</div>
+                    <div><strong>Price:</strong> <span class="price">0.002200 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HN1QZq7MyGnutpToCZGdiabP3D339kBjKXfjb1YFaHacdta</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/23_subnet-23.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 24</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 24</div>
+                    <div><strong>Price:</strong> <span class="price">0.001857 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FpX2DN3A38JzXfEDZwBsDhCM527L6BDPi6MKGeXvGxFPipx</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/24_subnet-24.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 25</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 25</div>
+                    <div><strong>Price:</strong> <span class="price">0.003076 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5F6aRdsBHajN2NhZHBTB6ibBFu7YuZZEWruWzB8x6B6GiZ4D</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/25_subnet-25.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 26</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 26</div>
+                    <div><strong>Price:</strong> <span class="price">0.003777 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FnLxqpzUFgrzW8aLjR5oYB8BUUS7XN9efw3N3diPpaxmTgt</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/26_subnet-26.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 27</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 27</div>
+                    <div><strong>Price:</strong> <span class="price">0.002887 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Cyfk5Jjee6uCafjZyUUjtKd7Q4qh1yJ48Ts7bkT9xXaDqe1</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/27_subnet-27.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 28</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 28</div>
+                    <div><strong>Price:</strong> <span class="price">0.003009 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Ca8L8PkbqXUtzohKtSM3i1naGQxANGLx51kJsEPNB14Admz</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/28_subnet-28.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 29</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 29</div>
+                    <div><strong>Price:</strong> <span class="price">0.003103 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HHHHHzgLnYRvnKkHd45cRUDMHXTSwx7MjUzxBrKbY4JfZWn</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/29_subnet-29.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 30</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 30</div>
+                    <div><strong>Price:</strong> <span class="price">0.004554 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5DcErZoVeG7ZShXwKFgJURuGXmdAVwmYzyvLAgpPjrPznDMB</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/30_subnet-30.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 31</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 31</div>
+                    <div><strong>Price:</strong> <span class="price">0.001832 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5CwLjwPdkwM9Rhia5VA5WSDVsL5FKWH24j5Tb96WnuUnqcst</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/31_subnet-31.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 32</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 32</div>
+                    <div><strong>Price:</strong> <span class="price">0.002438 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5DWgkCSvq4brWSNLDU9FBgTk1ZpAQ2y6t3ky97CvEVuS9Qad</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/32_subnet-32.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 33</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 33</div>
+                    <div><strong>Price:</strong> <span class="price">0.015051 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HinUfk5SqBUAbkMtgdNoum3VJvwrLgdvwW5sbXA1UPYZ8uB</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/33_subnet-33.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 34</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 34</div>
+                    <div><strong>Price:</strong> <span class="price">0.018534 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HjBSeeoz52CLfvDWDkzupqrYLHz1oToDPHjdmJjc4TF68LQ</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/34_subnet-34.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 35</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 35</div>
+                    <div><strong>Price:</strong> <span class="price">0.011027 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EsmkLf4VnpgNM31syMjAWsUrQdW2Yu5xzWbv6oDQydP9vVx</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/35_subnet-35.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 36</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 36</div>
+                    <div><strong>Price:</strong> <span class="price">0.004955 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5DPtMdkMau8G8fGbPxdYSKCBo94oC7mDyHKMvVdNdsLVT3EF</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/36_subnet-36.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 37</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 37</div>
+                    <div><strong>Price:</strong> <span class="price">0.002956 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5DXqqdrvu5FK3dASRVTCdGPZKx4Q9nkAZZSmibKG6PEEeW4j</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/37_subnet-37.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 38</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 38</div>
+                    <div><strong>Price:</strong> <span class="price">0.002406 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EFJ7mEVyjxT3iXqxuHyMMuGgJKFt85tb5s4vEvnCTpSoP3w</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/38_subnet-38.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 39</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 39</div>
+                    <div><strong>Price:</strong> <span class="price">0.009273 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5G3qVaXzKMPDm5AJ3dpzbpUC27kpccBvDwzSWXrq8M6qMmbC</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/39_subnet-39.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 40</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 40</div>
+                    <div><strong>Price:</strong> <span class="price">0.002187 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5F9Qvcz22Fwq4cm58o2bShiL6n8BnJmhqXB1cispBpqRfN6w</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/40_subnet-40.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 41</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 41</div>
+                    <div><strong>Price:</strong> <span class="price">0.021200 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FCSevLkofmKZRixMawp6jyyjBty1AeSCLa7N5Fv892DYkXX</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/41_subnet-41.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 42</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 42</div>
+                    <div><strong>Price:</strong> <span class="price">0.002713 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Gbdb5s2WrRaFXTgMUiVNBKACe3cgSLwZNyK2Vwvjfvf6jUJ</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/42_subnet-42.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 43</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 43</div>
+                    <div><strong>Price:</strong> <span class="price">0.009493 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HjMs5JDrLH3Hknmfm1gDq7nFYAv6M7t9v3EWMctSRXJS9HC</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/43_subnet-43.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 44</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 44</div>
+                    <div><strong>Price:</strong> <span class="price">0.016150 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FsREvyUXSZWYRqVyQLDdpYmZZPnkhZyW6HjooozKP1nQkwu</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/44_subnet-44.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 45</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 45</div>
+                    <div><strong>Price:</strong> <span class="price">0.005315 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Hmiaz4bLLbLw4LgTksJvJYPYp1XJ1GYkUfRiv4HGXX674DD</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/45_subnet-45.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 46</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 46</div>
+                    <div><strong>Price:</strong> <span class="price">0.009560 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5CDnZ6oeCrXKoL2VJQuQFxSfr49yQWz2DvdaYx47hr9QdM6D</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/46_subnet-46.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 47</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 47</div>
+                    <div><strong>Price:</strong> <span class="price">0.001863 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5D5Yw1NzfxLDQDP8D9jthkTNnJRKBfKSRTwnVBvg6RQymonx</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/47_subnet-47.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 48</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 48</div>
+                    <div><strong>Price:</strong> <span class="price">0.011695 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5D2Qc9ud7vTJrPzk8mT1ruY8oV8UaDP3ttepD7zVNNi943ch</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/48_subnet-48.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 49</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 49</div>
+                    <div><strong>Price:</strong> <span class="price">0.001383 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5C6z6jXv1iuwKMwfuWrZgPrrtxQZh7YKYThLXoMA2VgFG8w2</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/49_subnet-49.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 50</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 50</div>
+                    <div><strong>Price:</strong> <span class="price">0.009331 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5DxyiWpGqN5xXiczXcEGph51BcgTqcYKD5GKZqoACuc2sJkD</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/50_subnet-50.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 51</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 51</div>
+                    <div><strong>Price:</strong> <span class="price">0.055674 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FTVrwEpjvpNeKwczFtYjs62GHKKLHLCdqCThtj2unZouKg1</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/51_subnet-51.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 52</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 52</div>
+                    <div><strong>Price:</strong> <span class="price">0.007535 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EgfUiH6A99dhihMzp7eMM8UDkvmFjCWgM5gnpBN8UgLrVuz</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/52_subnet-52.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 53</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 53</div>
+                    <div><strong>Price:</strong> <span class="price">0.008375 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5F2HTUqtk9VWQwXkkUX9oFSXUkAib74qw7s3W7KyZP88AmYe</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/53_subnet-53.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 54</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 54</div>
+                    <div><strong>Price:</strong> <span class="price">0.004286 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5DUB7kNLvvx8Dj7D8tn54N1C7Xok6GodNPQE2WECCaL9Wgpr</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/54_subnet-54.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 55</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 55</div>
+                    <div><strong>Price:</strong> <span class="price">0.002007 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HmHiVeddZPNqjUJLccRiq5AVMTVaNYif5EQNrE5fumcf46r</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/55_subnet-55.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 56</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 56</div>
+                    <div><strong>Price:</strong> <span class="price">0.032066 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5GU4Xkd3dCGTU3s8VLcHGc5wsD5M8XyxDca5yDQhYm1mVXFu</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/56_subnet-56.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 57</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 57</div>
+                    <div><strong>Price:</strong> <span class="price">0.002963 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5GmhjCqDTsRcKqPFw4FDig8tVBfFGNrwP8ywe5En5hnELwDQ</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/57_subnet-57.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 58</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 58</div>
+                    <div><strong>Price:</strong> <span class="price">0.002285 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5DyEYZ2pB3bP6BN8Xpo5ova3TEPiT82j5oHXqgQ8csKE9stH</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/58_subnet-58.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 59</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 59</div>
+                    <div><strong>Price:</strong> <span class="price">0.002116 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EF9dnwEup1QD1vAg6j9Z7yqYKbpQSMK2Rax2JhhUEFjNdve</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/59_subnet-59.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 60</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 60</div>
+                    <div><strong>Price:</strong> <span class="price">0.001950 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5CXLwkK1Scd1uiMUrXYjJUTTPxqqyH2FTJQNLp9uXQhA9rhR</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/60_subnet-60.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 61</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 61</div>
+                    <div><strong>Price:</strong> <span class="price">0.003323 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5ECEsYL82fbXx9KfTZy7G2KXSurnScciJyAVMHZjekc8jUbn</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/61_subnet-61.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 62</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 62</div>
+                    <div><strong>Price:</strong> <span class="price">0.066391 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EsNzkZ3DwDqCsYmSJDeGXX51dQJd5broUCH6dbDjvkTcicD</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/62_subnet-62.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 63</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 63</div>
+                    <div><strong>Price:</strong> <span class="price">0.007487 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5GmpedVP2r9haksUBD743wek8t89jMz96RTkV2zkVdRR4e1B</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/63_subnet-63.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 64</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 64</div>
+                    <div><strong>Price:</strong> <span class="price">0.079779 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5F4Q3cA8EvApwhBj4eLjbb1meiLtzKgWhkF5JLRMNhRfqULc</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/64_subnet-64.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 65</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 65</div>
+                    <div><strong>Price:</strong> <span class="price">0.002756 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5GHrTeuFnJYjNJx773URbYb9Pk3bRRDiJHJFBNECZpjGqZPY</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/65_subnet-65.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 66</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 66</div>
+                    <div><strong>Price:</strong> <span class="price">0.002404 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HdK1zyMbMoq1NM2sDL2Len9h2CsmBcVbrFthePccMN5R8jU</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/66_subnet-66.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 67</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 67</div>
+                    <div><strong>Price:</strong> <span class="price">0.003092 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Dccjeya7SXuv5gAqYEzz3xMUkHAKvEY1obRET4U47uzf5oZ</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/67_subnet-67.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 68</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 68</div>
+                    <div><strong>Price:</strong> <span class="price">0.010130 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5CSuegTfX4Gf7SoXXJoPEyMEicXBjm5Z1QgoPPcU424rQbbb</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/68_subnet-68.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 69</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 69</div>
+                    <div><strong>Price:</strong> <span class="price">0.002271 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5DPbvQvifGf4JEgUfXwZz1htsVK7onAurspVfehhWSqZEDuA</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/69_subnet-69.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 70</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 70</div>
+                    <div><strong>Price:</strong> <span class="price">0.001855 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5GrypYms8VDs2otn6D4bH4tj3LyuXhWfcJHUJjdRGk1BXM96</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/70_subnet-70.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 71</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 71</div>
+                    <div><strong>Price:</strong> <span class="price">0.007373 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FNVgRnrxMibhcBGEAaajGrYjsaCn441a5HuGUBUNnxEBLo9</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/71_subnet-71.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 72</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 72</div>
+                    <div><strong>Price:</strong> <span class="price">0.002671 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Fmvr2VJs9EpyR5NbNpLTKgEXS8fRnQA6F349xqswsz6VL88</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/72_subnet-72.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 73</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 73</div>
+                    <div><strong>Price:</strong> <span class="price">0.003374 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Dnkprjf9fUrvWq3ZfFP8WrUNSjQws6UoHkbDfR1bQK8pFhW</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/73_subnet-73.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 74</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 74</div>
+                    <div><strong>Price:</strong> <span class="price">0.003832 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Dnffftud49iScqvvymjuvS4D1MP4ApenAQG2R5wg4bXGH7L</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/74_subnet-74.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 75</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 75</div>
+                    <div><strong>Price:</strong> <span class="price">0.018863 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5G1Qj93Fy22grpiGKq6BEvqqmS2HVRs3jaEdMhq9absQzs6g</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/75_subnet-75.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 76</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 76</div>
+                    <div><strong>Price:</strong> <span class="price">0.001828 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5G1YoCREZy3M7urxmiuaWoN3CkGuq54s267f7NJQCXSRJ1zm</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/76_subnet-76.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 77</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 77</div>
+                    <div><strong>Price:</strong> <span class="price">0.008745 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5DqALXRZumwGDyaJWRJ2fMzBqPxEuoqWypnexcwuYMDdohsE</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/77_subnet-77.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 78</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 78</div>
+                    <div><strong>Price:</strong> <span class="price">0.001835 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HEFmnv5f8jW24xb6Z61xsaj4mRPGxUybxuJ88uiTej98bzJ</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/78_subnet-78.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 79</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 79</div>
+                    <div><strong>Price:</strong> <span class="price">0.001891 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EWwdZB7qCCMaAso5Mzcks4UUcPxKYvpAj32t5Mg1v6HSxoF</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/79_subnet-79.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 80</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 80</div>
+                    <div><strong>Price:</strong> <span class="price">0.001938 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HdqPPrNa5BRWKPCTXBRdhGmymRZtKrfs6ZouqFkJuogJC8v</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/80_subnet-80.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 81</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 81</div>
+                    <div><strong>Price:</strong> <span class="price">0.009032 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5F9uEDDovurwEJihzZSpKypipVy84EEAPHTt3EfepTjcQfij</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/81_subnet-81.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 82</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 82</div>
+                    <div><strong>Price:</strong> <span class="price">0.001838 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FCAjxt6tXMDMHEZM27gB4Fv57hLtoy5bzPAm8MxpPkXseCJ</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/82_subnet-82.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 83</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 83</div>
+                    <div><strong>Price:</strong> <span class="price">0.003659 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EHGayLmiXfwz6oYmQFYmDz12RPXkhJw8Ty8RYVDeVZH9Q5L</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/83_subnet-83.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 84</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 84</div>
+                    <div><strong>Price:</strong> <span class="price">0.002517 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HjH8ZqfoWG6SS6UTvLHEmQVBA6gjTCdpcy7wveoDGWSPZwk</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/84_subnet-84.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 85</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 85</div>
+                    <div><strong>Price:</strong> <span class="price">0.010844 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FR392L6eKrTGwUjQurpxw89YUe7LzKANktDwRKLYYSgwxhb</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/85_subnet-85.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 86</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 86</div>
+                    <div><strong>Price:</strong> <span class="price">0.001599 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Fo2KqnBwKasMFj2Q1YrWGR2ryXbYAAW3LW6arZcHYUXNbaF</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/86_subnet-86.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 87</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 87</div>
+                    <div><strong>Price:</strong> <span class="price">0.001663 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EZuTAUq5WtrpNwXusZpsiwcxSVDoVihzYXBnbf19oBrFktk</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/87_subnet-87.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 88</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 88</div>
+                    <div><strong>Price:</strong> <span class="price">0.002372 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HK4vbGgLQdFKarN3hLVqNRbgQtQR5w3WTZ2tTnFHHLPgXpY</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/88_subnet-88.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 89</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 89</div>
+                    <div><strong>Price:</strong> <span class="price">0.004942 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FCN4P1KqFtsgBk29ABeDZuAnhrcHP2iTN2fG1kBefJBhBLd</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/89_subnet-89.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 90</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 90</div>
+                    <div><strong>Price:</strong> <span class="price">0.001738 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5DwAxRJyDfpWYLhgCnzhPDwTHuquAYw37TQbFTz4PaBFQezY</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/90_subnet-90.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 91</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 91</div>
+                    <div><strong>Price:</strong> <span class="price">0.001739 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HgKuFuXiF5FED1fbMZgApXQej9CigbSL28AJBfajGxv3t5h</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/91_subnet-91.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 92</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 92</div>
+                    <div><strong>Price:</strong> <span class="price">0.002100 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5DCNqfcoAPBrb2htSqftp51tsM3dMzmod8tB6bES3ipzCQLm</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/92_subnet-92.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 93</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 93</div>
+                    <div><strong>Price:</strong> <span class="price">0.014853 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5DAoDtMxVqtMu2Nd5E7QhPEGXDMgrySvE1b3rRT5ARDhfNNK</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/93_subnet-93.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 94</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 94</div>
+                    <div><strong>Price:</strong> <span class="price">0.001595 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5GpW3hx1pyA2Hq8JQJCmQepnao7y1w8VqufycogyGMU4g5Yg</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/94_subnet-94.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 95</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 95</div>
+                    <div><strong>Price:</strong> <span class="price">0.002873 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5ExqqyEBXLpGwqy6sSVrauozhcyAKBaMz1y5x9wAYSk7n7HP</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/95_subnet-95.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 96</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 96</div>
+                    <div><strong>Price:</strong> <span class="price">0.002362 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5DWqMv5fvjjRLTmHgsb8tMSfraxX5rru9SvrLjuJNQA8h5yQ</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/96_subnet-96.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 97</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 97</div>
+                    <div><strong>Price:</strong> <span class="price">0.001602 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EyjzHqG7VsZmgdHHm5SnbdqWXFxiKKZyrfYyrUUeg9hFXNg</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/97_subnet-97.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 98</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 98</div>
+                    <div><strong>Price:</strong> <span class="price">0.003676 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5CfphqMQ1B9Cenj5KDrPa8C6Fbx5w7ZtibaYiDfaaaVA5CAz</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/98_subnet-98.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 99</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 99</div>
+                    <div><strong>Price:</strong> <span class="price">0.002054 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EqM2tLsej2nKdwh9ye9DEW77CA9G9gXN2AkhCDt8KjCaPP7</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/99_subnet-99.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 100</div>
+                    <div class="status inactive">⚠️ Inactive</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 100</div>
+                    <div><strong>Price:</strong> <span class="price">18.944753 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HGKdLpCs2rBRzwefaRRQFngpmeydbhstgM3oiCG8hiAAmy7</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/100_subnet-100.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 101</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 101</div>
+                    <div><strong>Price:</strong> <span class="price">0.002569 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5H6Dezn7frLQbNFk2pEKFtzE2YjRJu7KfdsitF3waiUAS2Zj</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/101_subnet-101.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 102</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 102</div>
+                    <div><strong>Price:</strong> <span class="price">0.001672 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EZWPrcz2kSjTT8ULAb6u3Fi23p45aMR3mJJ7s9fDrpbc2Pq</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/102_subnet-102.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 103</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 103</div>
+                    <div><strong>Price:</strong> <span class="price">0.001410 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Dd8Kcjo8hvAELm5dDVbWqKT2CHaw3XB3nV4XQfT62ch6s4X</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/103_subnet-103.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 104</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 104</div>
+                    <div><strong>Price:</strong> <span class="price">0.002061 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5CoeuhimLNpjegk9zDBLmp9EBEy6X44Ad6naf2dCupkWYG6y</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/104_subnet-104.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 105</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 105</div>
+                    <div><strong>Price:</strong> <span class="price">0.001292 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5E6ozeDck55s5a71SQCMP2LP5SnkDRhu3cdrCuEVDayZiE4T</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/105_subnet-105.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 106</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 106</div>
+                    <div><strong>Price:</strong> <span class="price">0.006239 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5D7FVSM1fJM56zHJuMBuQ5LH32mkLni52JonoeppFrezvyHy</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/106_subnet-106.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 107</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 107</div>
+                    <div><strong>Price:</strong> <span class="price">0.001725 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EWqMYJM1aRdsAg6ceTFPc3b5vJH29J7rkdNHhNvuHo5tJQj</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/107_subnet-107.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 108</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 108</div>
+                    <div><strong>Price:</strong> <span class="price">0.001745 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5E4eKP81Pe2YG99QqMNpGgEUJDcHRcoxmwGZ5D9dfrrTRcc1</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/108_subnet-108.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 109</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 109</div>
+                    <div><strong>Price:</strong> <span class="price">0.001839 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EAMc5c16J9dfdNuds29Ke4edwDYnevAwKz5stBvULjVzFB5</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/109_subnet-109.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 110</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 110</div>
+                    <div><strong>Price:</strong> <span class="price">0.001981 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5GQbmZsNhQeTTN1wAqcwgPW4N6rvHtUPDBpxjrNCFMCFP14k</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/110_subnet-110.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 111</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 111</div>
+                    <div><strong>Price:</strong> <span class="price">0.001854 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5CG4zutn1o8ZRQKUfMqKS2DfbYUwNtbM3XqL7ZPkTkntppwK</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/111_subnet-111.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 112</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 112</div>
+                    <div><strong>Price:</strong> <span class="price">0.005302 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5E1ohAszHfhyQUEtz6mvCCkW4pYHsinPjxXS938fAZ2jFvCt</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/112_subnet-112.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 113</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 113</div>
+                    <div><strong>Price:</strong> <span class="price">0.001954 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5D82Gp2fCG6JvYfdPWj187coBnwn4AJYtQ6PhJ24ekTQ13xg</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/113_subnet-113.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 114</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 114</div>
+                    <div><strong>Price:</strong> <span class="price">0.001900 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EPRYFRx8xtC7Le7Xbu4wSkek1ZDAyNsyDDcqVX9fubZ6fQf</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/114_subnet-114.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 115</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 115</div>
+                    <div><strong>Price:</strong> <span class="price">0.035553 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EhTo9AXu6JCK2voyEz2ftwFq9cmYR1ACj8qobD67MGZKgTV</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/115_subnet-115.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 116</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 116</div>
+                    <div><strong>Price:</strong> <span class="price">0.004005 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FFFjWqpNcu2yweMNaYcya5bq6zRuAAWJsudCyN462nLKhtj</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/116_subnet-116.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 117</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 117</div>
+                    <div><strong>Price:</strong> <span class="price">0.002910 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5CV93B17wmt9cfx6LyYmZN47jxTqDRbGHMgdUo2iHTU5fQF2</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/117_subnet-117.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 118</div>
+                    <div class="status inactive">⚠️ Inactive</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 118</div>
+                    <div><strong>Price:</strong> <span class="price">5.214344 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5GgNjJnxjanxRKwV7xppNJXC8muPpfvntZ5Mx5SF8RAdLN5w</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/118_subnet-118.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 119</div>
+                    <div class="status inactive">⚠️ Inactive</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 119</div>
+                    <div><strong>Price:</strong> <span class="price">6.320628 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Cf5NP9fBuPb6tr8ioCNVzbwoHuNpbz7Ydx6vMPGBHZXRwJs</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/119_subnet-119.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 120</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 120</div>
+                    <div><strong>Price:</strong> <span class="price">0.063885 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5Fn7rj78bfSrNcFQCHShC7aoVSneGLbiPD7xFHu3zhwFrQhs</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/120_subnet-120.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 121</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 121</div>
+                    <div><strong>Price:</strong> <span class="price">0.012443 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EL9y2gdesAcPiPmoyFKABToiui3RkXewiKxdTMmes34ZdNf</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/121_subnet-121.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 122</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 122</div>
+                    <div><strong>Price:</strong> <span class="price">0.001695 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5HVPptMPpMx3jUtUEjUfB8zLKkNM4fPnt4CLYT5Gc3BYzRX4</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/122_subnet-122.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 123</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 123</div>
+                    <div><strong>Price:</strong> <span class="price">0.009681 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5GxsywPcZyWVYYJ7iuJpfmtujaA695M4FMCiqNRRcqNba82o</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/123_subnet-123.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 124</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 124</div>
+                    <div><strong>Price:</strong> <span class="price">0.004291 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FF6pxRem43f7wCisfXevqYVURZtxxnC4kYTx4dnNAWqi9vg</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/124_subnet-124.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 125</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 125</div>
+                    <div><strong>Price:</strong> <span class="price">0.009440 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5CFFokuo3Xkt2cgH3cnS3Nzm36zS4Lqg9KjTR99DdUKuydnx</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/125_subnet-125.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 126</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 126</div>
+                    <div><strong>Price:</strong> <span class="price">0.001860 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FZ9STydZELztvGbfAiXbXVgiUurL2UHrUshJDjzHgMgm857</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/126_subnet-126.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 127</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 127</div>
+                    <div><strong>Price:</strong> <span class="price">0.002145 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5EKrpcqVNWfVfmKiq8v3LRrgb3E3ENBwYzmAziDhMK58gtb5</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/127_subnet-127.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="subnet-card">
+                <div class="subnet-header">
+                    <div class="subnet-id">Subnet 128</div>
+                    <div class="status active">✅ Active</div>
+                </div>
+                <div class="subnet-info">
+                    <div><strong>ID:</strong> 128</div>
+                    <div><strong>Price:</strong> <span class="price">0.002737 TAO</span></div>
+                    <div><strong>Owner:</strong> <span class="owner">5FpsgU3JFa8S2GnngH92J9vtHHi4PYgZzxGXnwdFNwEwt9h8</span></div>
+                    <div><strong>Exists:</strong> True</div>
+                </div>
+                <div class="view-profile">
+                    <a href="profiles/128_subnet-128.html" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer">
+            <p>Data source: Bittensor Subtensor SDK (Finney network) - Public data only</p>
+            <p>Generated on: 2025-10-18 14:41:12</p>
+        </div>
+    </div>
+    
+    <button class="refresh-btn" onclick="location.reload()">🔄 Refresh Data</button>
+</body>
+</html>
