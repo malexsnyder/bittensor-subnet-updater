@@ -42,7 +42,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin main
+          git checkout main
+          git pull origin main --rebase
           git add -A
           git commit -m "Auto-update $(date -u '+%Y-%m-%dT%H:%M:%SZ')" || echo "No changes"
-          git pull --rebase origin main || true
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:main || echo "Push failed"
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
