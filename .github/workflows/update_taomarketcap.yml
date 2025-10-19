@@ -1,0 +1,56 @@
+name: Update TaoMarketCap Snapshots
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # Runs every hour
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"  # Keep same version as working system
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip uninstall -y openai || true
+          pip install --upgrade "openai>=1.40.0"  # Keep same version as working system
+          pip install requests beautifulsoup4  # Add BeautifulSoup4 for scraping
+          python -m pip show openai
+
+      - name: Fetch TaoMarketCap snapshot and upload to vector store
+        env:
+          OPENAI_API_KEY: ${{ secrets.BITTENSOR_SUBNETS }}  # Keep same secret name
+        run: |
+          echo "🔍 Debugging Python environment..."
+          which python
+          python --version
+          python -c "import sys; print('Python path:', sys.executable)"
+          echo "🔍 Checking if script exists..."
+          ls -la scripts/fetch_taomarketcap_snapshot.py
+          echo "🔍 Running TaoMarketCap snapshot script..."
+          python scripts/fetch_taomarketcap_snapshot.py
+
+      - name: Commit and push updates
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main || true
+          git add -A
+          git commit -m "Auto-update TaoMarketCap snapshot $(date -u '+%Y-%m-%dT%H:%M:%SZ')" || echo "No changes"
+          git push origin main || echo "Push failed"
+
+# 
