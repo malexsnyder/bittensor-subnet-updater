@@ -1,9 +1,9 @@
-name: Bittensor Subnet Updater (update2)
+name: Bittensor Subnet Updater (update2) - DISABLED
 
 on:
-  schedule:
-    - cron: "0 * * * *"  # Runs every hour
-  workflow_dispatch:
+  # schedule:
+  #   - cron: "0 * * * *"  # DISABLED - replaced by TaoMarketCap system
+  workflow_dispatch:  # Manual trigger only
 
 permissions:
   contents: write
