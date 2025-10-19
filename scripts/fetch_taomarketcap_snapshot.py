@@ -24,8 +24,93 @@ def setup_directories():
     print(f"📁 Created/verified directory: {SNAPSHOT_DIR}")
 
 def fetch_taomarketcap():
-    """Fetch subnet data from TaoMarketCap website."""
-    print("🔍 Fetching data from TaoMarketCap...")
+    """Fetch subnet data from TaoMarketCap API."""
+    print("🔍 Fetching data from TaoMarketCap API...")
+    
+    # Try the direct API endpoint first
+    api_url = "https://taomarketcap.com/internal/v1/subnets/table/"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "Accept": "application/json",
+        "Referer": "https://taomarketcap.com/"
+    }
+    
+    try:
+        resp = requests.get(api_url, headers=headers, timeout=30)
+        resp.raise_for_status()
+        print(f"✅ Successfully fetched TaoMarketCap API (status: {resp.status_code})")
+        
+        # Parse JSON response
+        data = resp.json()
+        subnets_data = data.get("data", [])
+        
+        if not subnets_data:
+            print("⚠️ No subnet data in API response, trying main page...")
+            return fetch_from_main_page()
+        
+        print(f"📊 Found {len(subnets_data)} subnets from API")
+        
+    except Exception as e:
+        print(f"⚠️ API request failed: {e}, trying main page...")
+        return fetch_from_main_page()
+    
+    # Process the subnet data
+    subnets = []
+    for subnet in subnets_data:
+        try:
+            subnets.append({
+                "id": subnet.get("subnet", "N/A"),
+                "name": subnet.get("name", "N/A"),
+                "price_usd": f"${subnet.get('price', 0):.6f}",
+                "market_cap": f"${subnet.get('marketcap', 0):,.2f}",
+                "volume_24h": f"${subnet.get('volume', 0):,.2f}",
+                "circulating_supply": f"{subnet.get('circulating_supply', 0):,}",
+                "emissions": f"{subnet.get('emission', 0):.6f}"
+            })
+        except Exception as e:
+            print(f"⚠️ Error processing subnet {subnet.get('subnet', 'unknown')}: {e}")
+            continue
+    
+    # Get summary statistics
+    sum_sn_prices = "N/A"
+    trending = []
+    
+    try:
+        # Try to get sum of SN prices from info endpoint
+        info_url = "https://taomarketcap.com/internal/v1/subnets/info/"
+        info_resp = requests.get(info_url, headers=headers, timeout=30)
+        if info_resp.status_code == 200:
+            info_data = info_resp.json()
+            sum_data = info_data.get("data", {}).get("sum_of_sn_prices_preview", [])
+            if sum_data:
+                latest_sum = sum_data[-1].get("value", 0)
+                sum_sn_prices = f"${latest_sum:.6f}"
+    except Exception as e:
+        print(f"⚠️ Could not get sum of SN prices: {e}")
+    
+    try:
+        # Try to get trending data
+        trending_url = "https://taomarketcap.com/internal/v1/analytics/trending/?limit=10"
+        trending_resp = requests.get(trending_url, headers=headers, timeout=30)
+        if trending_resp.status_code == 200:
+            trending_data = trending_resp.json()
+            trending_subnets = trending_data.get("data", {}).get("data", {}).get("subnets", [])
+            trending = [f"SN {item.get('entity_id', 'N/A')}" for item in trending_subnets[:10]]
+    except Exception as e:
+        print(f"⚠️ Could not get trending data: {e}")
+    
+    print(f"📈 Processed {len(subnets)} subnets, {len(trending)} trending items")
+    
+    return {
+        "subnets": subnets,
+        "sum_sn_prices": sum_sn_prices,
+        "trending": trending,
+        "timestamp": datetime.datetime.utcnow()
+    }
+
+def fetch_from_main_page():
+    """Fallback method to fetch from main page."""
+    print("🔍 Fetching data from TaoMarketCap main page...")
     
     url = "https://taomarketcap.com/"
     headers = {
@@ -35,70 +120,68 @@ def fetch_taomarketcap():
     try:
         resp = requests.get(url, headers=headers, timeout=30)
         resp.raise_for_status()
-        print(f"✅ Successfully fetched TaoMarketCap (status: {resp.status_code})")
+        print(f"✅ Successfully fetched TaoMarketCap main page (status: {resp.status_code})")
     except Exception as e:
         print(f"❌ Error fetching TaoMarketCap: {e}")
         return None
     
+    # Parse the HTML to extract JSON data
     soup = BeautifulSoup(resp.text, "html.parser")
     
-    # Extract subnet data from table
+    # Look for the JSON data in script tags
+    subnets_data = None
+    script_tags = soup.find_all("script")
+    
+    for script in script_tags:
+        if script.string and "subnets" in script.string and "price" in script.string:
+            try:
+                # Extract JSON data from the script tag
+                script_content = script.string
+                # Find the JSON object containing subnet data
+                if "subnets" in script_content:
+                    # Look for the data structure
+                    import json
+                    import re
+                    
+                    # Try to find JSON data patterns
+                    json_match = re.search(r'"subnets":\s*\[(.*?)\]', script_content, re.DOTALL)
+                    if json_match:
+                        # Extract subnet data
+                        subnets_json = "[" + json_match.group(1) + "]"
+                        subnets_data = json.loads(subnets_json)
+                        break
+                        
+            except Exception as e:
+                print(f"⚠️ Error parsing script data: {e}")
+                continue
+    
+    if not subnets_data:
+        print("⚠️ Could not extract JSON data from main page")
+        return None
+    
+    # Process the subnet data
     subnets = []
-    table = soup.find("table")
-    
-    if table:
-        rows = table.find_all("tr")[1:]  # Skip header row
-        print(f"📊 Found {len(rows)} subnet rows")
-        
-        for row in rows:
-            cols = [re.sub(r"\s+", " ", c.text.strip()) for c in row.find_all("td")]
-            if len(cols) >= 6:
-                subnets.append({
-                    "id": cols[0],
-                    "name": cols[1],
-                    "price_usd": cols[2],
-                    "market_cap": cols[3],
-                    "volume_24h": cols[4],
-                    "circulating_supply": cols[5],
-                    "emissions": cols[6] if len(cols) > 6 else "N/A"
-                })
-    else:
-        print("⚠️ No table found, trying alternative extraction...")
-        # Fallback: look for subnet data in other formats
-        subnet_elements = soup.find_all(string=re.compile(r"Subnet \d+", re.I))
-        for element in subnet_elements[:20]:  # Limit to first 20
+    for subnet in subnets_data:
+        try:
             subnets.append({
-                "id": "N/A",
-                "name": element.strip(),
-                "price_usd": "N/A",
-                "market_cap": "N/A", 
-                "volume_24h": "N/A",
-                "circulating_supply": "N/A",
-                "emissions": "N/A"
+                "id": subnet.get("subnet", "N/A"),
+                "name": subnet.get("name", "N/A"),
+                "price_usd": f"${subnet.get('price', 0):.6f}",
+                "market_cap": f"${subnet.get('marketcap', 0):,.2f}",
+                "volume_24h": f"${subnet.get('volume', 0):,.2f}",
+                "circulating_supply": f"{subnet.get('circulating_supply', 0):,}",
+                "emissions": f"{subnet.get('emission', 0):.6f}"
             })
+        except Exception as e:
+            print(f"⚠️ Error processing subnet {subnet.get('subnet', 'unknown')}: {e}")
+            continue
     
-    # Extract summary statistics
-    sum_sn_prices = "N/A"
-    trending = []
-    
-    # Look for Sum of SN Prices
-    sum_text = soup.find(string=re.compile("Sum of SN Prices", re.I))
-    if sum_text:
-        sum_sn_prices = sum_text.strip()
-    
-    # Look for trending subnets
-    trending_text = soup.find(string=re.compile("Trending", re.I))
-    if trending_text:
-        trending_list = trending_text.find_next("ul") or trending_text.find_next("ol")
-        if trending_list:
-            trending = [li.text.strip() for li in trending_list.find_all("li")[:10]]
-    
-    print(f"📈 Found {len(subnets)} subnets, {len(trending)} trending items")
+    print(f"📈 Found {len(subnets)} subnets from main page")
     
     return {
         "subnets": subnets,
-        "sum_sn_prices": sum_sn_prices,
-        "trending": trending,
+        "sum_sn_prices": "N/A",
+        "trending": [],
         "timestamp": datetime.datetime.utcnow()
     }
 
