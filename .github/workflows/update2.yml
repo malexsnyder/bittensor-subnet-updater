@@ -42,6 +42,9 @@ jobs:
       - name: Combine profiles into a single file
         run: |
           cat data/profiles/*.md > data/all_subnet_profiles.txt
+          echo "📊 Combined profiles file size: $(wc -c < data/all_subnet_profiles.txt) bytes"
+          echo "📄 First 200 characters:"
+          head -c 200 data/all_subnet_profiles.txt
 
       - name: Upload latest subnet data to OpenAI Vector Store
         env:
@@ -49,33 +52,77 @@ jobs:
         run: |
           python - <<'EOF'
           import os
-          import openai
+          import sys
+          import time
+          
           print("🔍 OpenAI SDK version check:")
-          print(getattr(openai, "__version__", "unknown"))
+          try:
+              import openai
+              print(f"OpenAI version: {getattr(openai, '__version__', 'unknown')}")
+          except Exception as e:
+              print(f"❌ Error importing openai: {e}")
+              sys.exit(1)
 
           try:
               from openai import OpenAI
+              print("✅ Using new OpenAI client interface")
           except ImportError as e:
-              raise RuntimeError("❌ The new OpenAI client is not available. Installed version is old.") from e
+              print(f"❌ The new OpenAI client is not available: {e}")
+              sys.exit(1)
 
-          print("✅ Using new OpenAI client interface")
-          client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+          # Check API key
+          api_key = os.environ.get("OPENAI_API_KEY")
+          if not api_key:
+              print("❌ OPENAI_API_KEY environment variable not set")
+              sys.exit(1)
+              
+          if not api_key.startswith("sk-"):
+              print("❌ OPENAI_API_KEY does not appear to be valid (should start with 'sk-')")
+              sys.exit(1)
+              
+          print("✅ API key format looks correct")
+
+          client = OpenAI(api_key=api_key)
 
           vector_store_id = "vs_68f441099ff88191a84e2e4dadfdc104"
           profiles_path = "data/all_subnet_profiles.txt"
 
           if not os.path.exists(profiles_path):
-              raise FileNotFoundError(f"{profiles_path} not found.")
+              print(f"❌ {profiles_path} not found.")
+              sys.exit(1)
+              
+          file_size = os.path.getsize(profiles_path)
+          print(f"📄 File size: {file_size} bytes")
+
+          # Test vector store access first
+          try:
+              print("🔍 Testing vector store access...")
+              vector_store = client.vector_stores.retrieve(vector_store_id)
+              print(f"✅ Vector store found: {vector_store.name}")
+          except Exception as e:
+              print(f"❌ Error accessing vector store: {e}")
+              print("💡 Make sure the vector store ID is correct and you have access to it")
+              sys.exit(1)
 
           print("📤 Uploading subnet data to vector store...")
 
-          with open(profiles_path, "rb") as f:
-              client.vector_stores.files.upload_and_poll(
-                  vector_store_id=vector_store_id,
-                  file=f
-              )
-
-          print("✅ Uploaded subnet data to OpenAI vector store successfully.")
+          try:
+              with open(profiles_path, "rb") as f:
+                  file_object = client.vector_stores.files.upload_and_poll(
+                      vector_store_id=vector_store_id,
+                      file=f
+                  )
+              print(f"✅ Uploaded subnet data to OpenAI vector store successfully.")
+              print(f"📁 File ID: {file_object.id}")
+              print(f"📊 Status: {file_object.status}")
+          except Exception as e:
+              print(f"❌ Error uploading file: {e}")
+              print("💡 Common issues:")
+              print("   - Vector store ID is incorrect")
+              print("   - File is too large")
+              print("   - API key doesn't have access to the vector store")
+              print("   - Vector store is full")
+              sys.exit(1)
           EOF
 
       - name: Commit and push updates
@@ -88,3 +135,5 @@ jobs:
           git add -A
           git commit -m "Auto-update $(date -u '+%Y-%m-%dT%H:%M:%SZ')" || echo "No changes"
           git push origin main || echo "Push failed"
+
+# 
