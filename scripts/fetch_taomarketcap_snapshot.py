@@ -24,80 +24,86 @@ def setup_directories():
     print(f"📁 Created/verified directory: {SNAPSHOT_DIR}")
 
 def fetch_taomarketcap():
-    """Fetch subnet data from TaoMarketCap API."""
-    print("🔍 Fetching data from TaoMarketCap API...")
+    """Fetch subnet data from TaoMarketCap website."""
+    print("🔍 Fetching data from TaoMarketCap...")
     
-    # Try the direct API endpoint first
-    api_url = "https://taomarketcap.com/internal/v1/subnets/table/"
+    url = "https://taomarketcap.com/"
     headers = {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-        "Accept": "application/json",
-        "Referer": "https://taomarketcap.com/"
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
     
     try:
-        resp = requests.get(api_url, headers=headers, timeout=30)
+        resp = requests.get(url, headers=headers, timeout=30)
         resp.raise_for_status()
-        print(f"✅ Successfully fetched TaoMarketCap API (status: {resp.status_code})")
-        
-        # Parse JSON response
-        data = resp.json()
-        subnets_data = data.get("data", [])
-        
-        if not subnets_data:
-            print("⚠️ No subnet data in API response, trying main page...")
-            return fetch_from_main_page()
-        
-        print(f"📊 Found {len(subnets_data)} subnets from API")
-        
+        print(f"✅ Successfully fetched TaoMarketCap (status: {resp.status_code})")
     except Exception as e:
-        print(f"⚠️ API request failed: {e}, trying main page...")
-        return fetch_from_main_page()
+        print(f"❌ Error fetching TaoMarketCap: {e}")
+        return None
+    
+    # Extract JSON data from the page
+    print("🔍 Extracting subnet data from page...")
+    
+    # Extract each field individually using regex
+    subnet_ids = re.findall(r'"subnet":(\d+)', resp.text)
+    names = re.findall(r'"name":"([^"]*)"', resp.text)
+    prices = re.findall(r'"price":([0-9.]+)', resp.text)
+    marketcaps = re.findall(r'"marketcap":([0-9.]+)', resp.text)
+    volumes = re.findall(r'"volume":([0-9.]+)', resp.text)
+    emissions = re.findall(r'"emission":([0-9.]+)', resp.text)
+    
+    # Create matches from individual extractions
+    matches = []
+    for i in range(min(len(subnet_ids), len(names), len(prices), len(marketcaps), len(volumes), len(emissions))):
+        matches.append((subnet_ids[i], names[i], prices[i], marketcaps[i], volumes[i], emissions[i]))
+    
+    if not matches:
+        print("❌ Could not extract subnet data")
+        return None
+    
+    print(f"📊 Found {len(matches)} subnet records")
     
     # Process the subnet data
     subnets = []
-    for subnet in subnets_data:
+    for match in matches:
         try:
-            subnets.append({
-                "id": subnet.get("subnet", "N/A"),
-                "name": subnet.get("name", "N/A"),
-                "price_usd": f"${subnet.get('price', 0):.6f}",
-                "market_cap": f"${subnet.get('marketcap', 0):,.2f}",
-                "volume_24h": f"${subnet.get('volume', 0):,.2f}",
-                "circulating_supply": f"{subnet.get('circulating_supply', 0):,}",
-                "emissions": f"{subnet.get('emission', 0):.6f}"
-            })
+            if len(match) >= 6:
+                subnet_id = match[0]
+                name = match[1] if len(match) > 1 else "Unknown"
+                price = float(match[2]) if len(match) > 2 and match[2].replace('.', '').isdigit() else 0.0
+                marketcap = float(match[3]) if len(match) > 3 and match[3].replace('.', '').isdigit() else 0.0
+                volume = float(match[4]) if len(match) > 4 and match[4].replace('.', '').isdigit() else 0.0
+                emission = float(match[5]) if len(match) > 5 and match[5].replace('.', '').isdigit() else 0.0
+                
+                subnets.append({
+                    "id": subnet_id,
+                    "name": name,
+                    "price_usd": f"${price:.6f}",
+                    "market_cap": f"${marketcap:,.2f}",
+                    "volume_24h": f"${volume:,.2f}",
+                    "circulating_supply": "N/A",  # We'll get this separately if needed
+                    "emissions": f"{emission:.6f}"
+                })
         except Exception as e:
-            print(f"⚠️ Error processing subnet {subnet.get('subnet', 'unknown')}: {e}")
+            print(f"⚠️ Error processing subnet {match[0] if match else 'unknown'}: {e}")
             continue
     
-    # Get summary statistics
+    # Extract summary statistics
     sum_sn_prices = "N/A"
     trending = []
     
-    try:
-        # Try to get sum of SN prices from info endpoint
-        info_url = "https://taomarketcap.com/internal/v1/subnets/info/"
-        info_resp = requests.get(info_url, headers=headers, timeout=30)
-        if info_resp.status_code == 200:
-            info_data = info_resp.json()
-            sum_data = info_data.get("data", {}).get("sum_of_sn_prices_preview", [])
-            if sum_data:
-                latest_sum = sum_data[-1].get("value", 0)
-                sum_sn_prices = f"${latest_sum:.6f}"
-    except Exception as e:
-        print(f"⚠️ Could not get sum of SN prices: {e}")
+    # Look for Sum of SN Prices
+    sum_match = re.search(r'"sum_of_sn_prices_preview":\[.*?"value":([0-9.]+)', resp.text)
+    if sum_match:
+        sum_sn_prices = f"${float(sum_match.group(1)):.6f}"
     
-    try:
-        # Try to get trending data
-        trending_url = "https://taomarketcap.com/internal/v1/analytics/trending/?limit=10"
-        trending_resp = requests.get(trending_url, headers=headers, timeout=30)
-        if trending_resp.status_code == 200:
-            trending_data = trending_resp.json()
-            trending_subnets = trending_data.get("data", {}).get("data", {}).get("subnets", [])
-            trending = [f"SN {item.get('entity_id', 'N/A')}" for item in trending_subnets[:10]]
-    except Exception as e:
-        print(f"⚠️ Could not get trending data: {e}")
+    # Look for trending subnets
+    trending_match = re.search(r'"subnets":\[(.*?)\]', resp.text)
+    if trending_match:
+        try:
+            trending_data = json.loads("[" + trending_match.group(1) + "]")
+            trending = [f"SN {item.get('entity_id', 'N/A')}" for item in trending_data[:10]]
+        except:
+            trending = []
     
     print(f"📈 Processed {len(subnets)} subnets, {len(trending)} trending items")
     
