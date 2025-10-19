@@ -24,10 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip uninstall -y openai || true
-          pip install --upgrade "openai>=1.40.0"
-          pip install requests pandas bittensor faiss-cpu
-          python -m pip show openai
+          pip install requests pandas bittensor openai==1.109.1 faiss-cpu
 
       - name: Fetch latest Bittensor subnet data
         env:
@@ -42,22 +39,32 @@ jobs:
       - name: Combine profiles into a single file
         run: |
           cat data/profiles/*.md > data/all_subnet_profiles.txt
-          echo "📊 Combined profiles file size: $(wc -c < data/all_subnet_profiles.txt) bytes"
-          echo "📄 First 200 characters:"
-          head -c 200 data/all_subnet_profiles.txt
 
       - name: Upload latest subnet data to OpenAI Vector Store
         env:
           OPENAI_API_KEY: ${{ secrets.BITTENSOR_SUBNETS }}
         run: |
-          echo "🔍 Debugging Python environment..."
-          which python
-          python --version
-          python -c "import sys; print('Python path:', sys.executable)"
-          echo "🔍 Checking if script exists..."
-          ls -la scripts/upload_to_vector_store.py
-          echo "🔍 Running upload script..."
-          python scripts/upload_to_vector_store.py
+          python - <<'EOF'
+          from openai import OpenAI
+          import os
+
+          client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+          vector_store_id = "vs_68f441099ff88191a84e2e4dadfdc104"
+          profiles_path = "data/all_subnet_profiles.txt"
+
+          if not os.path.exists(profiles_path):
+              raise FileNotFoundError(f"{profiles_path} not found.")
+
+          print("Uploading subnet data to vector store...")
+
+          with open(profiles_path, "rb") as f:
+              client.vector_stores.files.upload_and_poll(
+                  vector_store_id=vector_store_id,
+                  file=f
+              )
+
+          print("✅ Uploaded subnet data to OpenAI vector store successfully.")
+          EOF
 
       - name: Commit and push updates
         env:
@@ -69,5 +76,3 @@ jobs:
           git add -A
           git commit -m "Auto-update $(date -u '+%Y-%m-%dT%H:%M:%SZ')" || echo "No changes"
           git push origin main || echo "Push failed"
-
-# 
