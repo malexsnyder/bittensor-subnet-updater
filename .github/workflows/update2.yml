@@ -25,8 +25,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip uninstall -y openai || true
-          pip install "openai>=1.40.0"
+          pip install --upgrade "openai>=1.40.0"
           pip install requests pandas bittensor faiss-cpu
+          python -m pip show openai
 
       - name: Fetch latest Bittensor subnet data
         env:
@@ -48,9 +49,16 @@ jobs:
         run: |
           python - <<'EOF'
           import os
-          from openai import OpenAI
+          import openai
+          print("🔍 OpenAI SDK version check:")
+          print(getattr(openai, "__version__", "unknown"))
 
-          print("Initializing OpenAI client...")
+          try:
+              from openai import OpenAI
+          except ImportError as e:
+              raise RuntimeError("❌ The new OpenAI client is not available. Installed version is old.") from e
+
+          print("✅ Using new OpenAI client interface")
           client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
           vector_store_id = "vs_68f441099ff88191a84e2e4dadfdc104"
@@ -59,18 +67,15 @@ jobs:
           if not os.path.exists(profiles_path):
               raise FileNotFoundError(f"{profiles_path} not found.")
 
-          print("Uploading subnet data to vector store...")
+          print("📤 Uploading subnet data to vector store...")
 
           with open(profiles_path, "rb") as f:
-              try:
-                  client.vector_stores.files.upload_and_poll(
-                      vector_store_id=vector_store_id,
-                      file=f
-                  )
-                  print("✅ Uploaded subnet data to OpenAI vector store successfully.")
-              except Exception as e:
-                  print(f"❌ Upload failed: {e}")
-                  raise
+              client.vector_stores.files.upload_and_poll(
+                  vector_store_id=vector_store_id,
+                  file=f
+              )
+
+          print("✅ Uploaded subnet data to OpenAI vector store successfully.")
           EOF
 
       - name: Commit and push updates
