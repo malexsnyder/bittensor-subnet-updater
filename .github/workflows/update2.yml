@@ -1,3 +1,45 @@
+name: Bittensor Subnet Updater (update2)
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # Runs every hour
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pandas bittensor openai faiss-cpu
+
+      - name: Fetch latest Bittensor subnet data
+        env:
+          OPENAI_API_KEY: ${{ secrets.BITTENSOR_SUBNETS }}
+        run: |
+          python scripts/fetch_subnets_bt.py
+
+      - name: Build subnet profiles
+        run: |
+          python scripts/build_profiles_local.py
+
+      - name: Combine profiles into a single file
+        run: |
+          cat data/profiles/*.md > data/all_subnet_profiles.txt
+
       - name: Upload latest subnet data to OpenAI Vector Store
         env:
           OPENAI_API_KEY: ${{ secrets.BITTENSOR_SUBNETS }}
@@ -29,3 +71,14 @@
 
           print("✅ Uploaded subnet data successfully (or fallback used).")
           EOF
+
+      - name: Commit and push updates
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main || true
+          git add -A
+          git commit -m "Auto-update $(date -u '+%Y-%m-%dT%H:%M:%SZ')" || echo "No changes"
+          git push origin main || echo "Push failed"
