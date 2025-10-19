@@ -107,14 +107,23 @@ jobs:
           print("📤 Uploading subnet data to vector store...")
 
           try:
+              # Use the correct API method for file upload
               with open(profiles_path, "rb") as f:
-                  file_object = client.vector_stores.files.upload_and_poll(
-                      vector_store_id=vector_store_id,
-                      file=f
+                  # First upload the file
+                  file_response = client.files.create(
+                      file=f,
+                      purpose="assistants"
                   )
-              print(f"✅ Uploaded subnet data to OpenAI vector store successfully.")
-              print(f"📁 File ID: {file_object.id}")
-              print(f"📊 Status: {file_object.status}")
+                  print(f"📁 File uploaded with ID: {file_response.id}")
+                  
+                  # Then add it to the vector store
+                  vector_store_file = client.vector_stores.files.create(
+                      vector_store_id=vector_store_id,
+                      file_id=file_response.id
+                  )
+                  print(f"✅ File added to vector store successfully.")
+                  print(f"📁 Vector store file ID: {vector_store_file.id}")
+                  
           except Exception as e:
               print(f"❌ Error uploading file: {e}")
               print("💡 Common issues:")
@@ -122,6 +131,7 @@ jobs:
               print("   - File is too large")
               print("   - API key doesn't have access to the vector store")
               print("   - Vector store is full")
+              print(f"   - Error details: {str(e)}")
               sys.exit(1)
           EOF
 

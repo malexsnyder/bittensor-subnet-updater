@@ -107,14 +107,22 @@ jobs:
           
           print("\n🔍 Step 6: Upload File")
           try:
+              # Use the correct two-step process
               with open(profiles_path, "rb") as f:
-                  file_object = client.vector_stores.files.upload_and_poll(
-                      vector_store_id=vector_store_id,
-                      file=f
+                  # First upload the file
+                  file_response = client.files.create(
+                      file=f,
+                      purpose="assistants"
                   )
-              print(f"✅ Upload successful!")
-              print(f"📁 File ID: {file_object.id}")
-              print(f"📊 Status: {file_object.status}")
+                  print(f"📁 File uploaded with ID: {file_response.id}")
+                  
+                  # Then add it to the vector store
+                  vector_store_file = client.vector_stores.files.create(
+                      vector_store_id=vector_store_id,
+                      file_id=file_response.id
+                  )
+                  print(f"✅ Upload successful!")
+                  print(f"📁 Vector store file ID: {vector_store_file.id}")
           except Exception as e:
               print(f"❌ Upload failed: {e}")
               print("💡 Common issues:")
@@ -122,6 +130,7 @@ jobs:
               print("   - Vector store full")
               print("   - Network issues")
               print("   - Invalid file format")
+              print(f"   - Error details: {str(e)}")
               sys.exit(1)
           
           print("\n🎉 All steps completed successfully!")
