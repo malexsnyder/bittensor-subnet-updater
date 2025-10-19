@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests pandas bittensor openai faiss-cpu
+          pip install --upgrade openai==1.40.0 requests pandas bittensor faiss-cpu
 
       - name: Fetch latest Bittensor subnet data
         env:
@@ -45,21 +45,20 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.BITTENSOR_SUBNETS }}
         run: |
           python - <<'EOF'
-          import openai, os
+          from openai import OpenAI
+          import os
 
-          openai.api_key = os.environ["OPENAI_API_KEY"]
-
-          # ✅ Replace this with your actual vector store ID from OpenAI
+          client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
           vector_store_id = "vs_68f441099ff88191a84e2e4dadfdc104"
-
           profiles_path = "data/all_subnet_profiles.txt"
+
           if not os.path.exists(profiles_path):
               raise FileNotFoundError(f"{profiles_path} not found.")
 
           print("Uploading subnet data to vector store...")
 
           with open(profiles_path, "rb") as f:
-              openai.VectorStoreFile.create(
+              client.vector_stores.files.upload_and_poll(
                   vector_store_id=vector_store_id,
                   file=f
               )
