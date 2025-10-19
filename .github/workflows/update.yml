@@ -1,9 +1,12 @@
-name: Update Subnets & Vector Store
+name: Bittensor Subnet Updater
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 */12 * * *' # runs every 12 hours
+    - cron: "0 * * * *"  # Runs every hour
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   update:
@@ -16,34 +19,24 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 pandas openai faiss-cpu
+          pip install requests pandas bittensor openai
 
-      - name: Scrape TaoMarketCap
-        run: |
-          python scripts/scrape_taomarketcap.py
-
-      - name: Build subnet profiles
-        run: |
-          python scripts/build_profiles.py
-
-      - name: Build vector store
-        run: |
-          python scripts/build_vector.py
-
-      - name: Commit and push changes
+      - name: Fetch Bittensor subnet data
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.Bittensor_Subnets }}
+        run: |
+          python scripts/fetch_subnets_bt.py
+
+      - name: Commit and push updates
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git fetch origin main
-          git checkout main
-          git pull origin main --rebase
+          git pull --rebase origin main || true
           git add -A
-          git commit -m "Auto-update $(date -u '+%Y-%m-%dT%H:%M:%SZ')" || echo "No changes"
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
+          git commit -m "Auto-update $(date -u +"%Y-%m-%dT%H:%M:%SZ")" || echo "No changes"
+          git push origin main || echo "Push failed"
