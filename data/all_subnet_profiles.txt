@@ -39,7 +39,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:34*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:08:56*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 100 (Subnet 100)
 
@@ -59,7 +59,7 @@
 - **Exists:** True
 - **Active:** False
 - **Owner Hotkey:** `5GziQCcRpN8NCJktX343brnfuVe3w6gUYieeStXPD1Dag2At`
-- **Price:** 1.432570907 TAO
+- **Price:** 1.950924099 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -82,7 +82,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:07*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:28*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 101 (Subnet 101)
 
@@ -102,7 +102,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5H6Dezn7frLQbNFk2pEKFtzE2YjRJu7KfdsitF3waiUAS2Zj`
-- **Price:** 0.002990066 TAO
+- **Price:** 0.003264274 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -125,7 +125,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:07*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:28*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 102 (Subnet 102)
 
@@ -145,7 +145,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EZWPrcz2kSjTT8ULAb6u3Fi23p45aMR3mJJ7s9fDrpbc2Pq`
-- **Price:** 0.001813868 TAO
+- **Price:** 0.001810495 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -168,7 +168,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:08*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:29*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 103 (Subnet 103)
 
@@ -188,7 +188,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5Dd8Kcjo8hvAELm5dDVbWqKT2CHaw3XB3nV4XQfT62ch6s4X`
-- **Price:** 0.001423845 TAO
+- **Price:** 0.001423652 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -211,7 +211,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:08*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:29*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 104 (Subnet 104)
 
@@ -231,7 +231,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5CoeuhimLNpjegk9zDBLmp9EBEy6X44Ad6naf2dCupkWYG6y`
-- **Price:** 0.002062323 TAO
+- **Price:** 0.002062155 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -254,7 +254,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:08*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:29*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 105 (Subnet 105)
 
@@ -274,7 +274,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5E6ozeDck55s5a71SQCMP2LP5SnkDRhu3cdrCuEVDayZiE4T`
-- **Price:** 0.001321151 TAO
+- **Price:** 0.001319338 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -297,7 +297,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:09*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:29*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 106 (Subnet 106)
 
@@ -317,7 +317,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5D7FVSM1fJM56zHJuMBuQ5LH32mkLni52JonoeppFrezvyHy`
-- **Price:** 0.006048239 TAO
+- **Price:** 0.006046476 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -340,7 +340,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:09*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:30*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 107 (Subnet 107)
 
@@ -360,7 +360,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EWqMYJM1aRdsAg6ceTFPc3b5vJH29J7rkdNHhNvuHo5tJQj`
-- **Price:** 0.001721473 TAO
+- **Price:** 0.001718233 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -383,7 +383,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:09*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:30*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 108 (Subnet 108)
 
@@ -403,7 +403,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5E4eKP81Pe2YG99QqMNpGgEUJDcHRcoxmwGZ5D9dfrrTRcc1`
-- **Price:** 0.001764558 TAO
+- **Price:** 0.0017644 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -426,7 +426,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:10*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:30*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 109 (Subnet 109)
 
@@ -446,7 +446,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EAMc5c16J9dfdNuds29Ke4edwDYnevAwKz5stBvULjVzFB5`
-- **Price:** 0.001836347 TAO
+- **Price:** 0.001836103 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -469,7 +469,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:10*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:31*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 10 (Subnet 10)
 
@@ -489,7 +489,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EvNESR7DfSMmdwJ3crtBW1ENAhq3f99X4FCbTi1hDUNCWAW`
-- **Price:** 0.006142402 TAO
+- **Price:** 0.006140392 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -512,7 +512,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:37*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:08:59*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 110 (Subnet 110)
 
@@ -532,7 +532,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5GQbmZsNhQeTTN1wAqcwgPW4N6rvHtUPDBpxjrNCFMCFP14k`
-- **Price:** 0.001920255 TAO
+- **Price:** 0.002000761 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -555,7 +555,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:10*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:31*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 111 (Subnet 111)
 
@@ -575,7 +575,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5CG4zutn1o8ZRQKUfMqKS2DfbYUwNtbM3XqL7ZPkTkntppwK`
-- **Price:** 0.001855635 TAO
+- **Price:** 0.00185044 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -598,7 +598,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:11*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:31*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 112 (Subnet 112)
 
@@ -618,7 +618,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5E1ohAszHfhyQUEtz6mvCCkW4pYHsinPjxXS938fAZ2jFvCt`
-- **Price:** 0.005258758 TAO
+- **Price:** 0.005259197 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -641,7 +641,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:11*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:32*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 113 (Subnet 113)
 
@@ -661,7 +661,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5D82Gp2fCG6JvYfdPWj187coBnwn4AJYtQ6PhJ24ekTQ13xg`
-- **Price:** 0.002204275 TAO
+- **Price:** 0.002197498 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -684,7 +684,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:11*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:32*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 114 (Subnet 114)
 
@@ -704,7 +704,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EPRYFRx8xtC7Le7Xbu4wSkek1ZDAyNsyDDcqVX9fubZ6fQf`
-- **Price:** 0.001952633 TAO
+- **Price:** 0.001952441 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -727,7 +727,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:12*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:32*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 115 (Subnet 115)
 
@@ -747,7 +747,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EhTo9AXu6JCK2voyEz2ftwFq9cmYR1ACj8qobD67MGZKgTV`
-- **Price:** 0.024950161 TAO
+- **Price:** 0.024566697 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -770,7 +770,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:12*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:33*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 116 (Subnet 116)
 
@@ -790,7 +790,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FFFjWqpNcu2yweMNaYcya5bq6zRuAAWJsudCyN462nLKhtj`
-- **Price:** 0.004090063 TAO
+- **Price:** 0.004087056 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -813,7 +813,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:12*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:33*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 117 (Subnet 117)
 
@@ -833,7 +833,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5CV93B17wmt9cfx6LyYmZN47jxTqDRbGHMgdUo2iHTU5fQF2`
-- **Price:** 0.002813439 TAO
+- **Price:** 0.002794864 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -856,7 +856,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:13*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:33*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 118 (Subnet 118)
 
@@ -899,7 +899,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:13*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:34*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 119 (Subnet 119)
 
@@ -942,7 +942,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:13*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:34*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 11 (Subnet 11)
 
@@ -962,7 +962,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EtM9iXMAYRsmt6aoQAoWNDX6yaBnjhmnEQhWKv8HpwkVtML`
-- **Price:** 0.010846926 TAO
+- **Price:** 0.010846545 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -985,7 +985,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:38*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:00*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 120 (Subnet 120)
 
@@ -1005,7 +1005,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5Fn7rj78bfSrNcFQCHShC7aoVSneGLbiPD7xFHu3zhwFrQhs`
-- **Price:** 0.063591541 TAO
+- **Price:** 0.063569277 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1028,7 +1028,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:14*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:34*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 121 (Subnet 121)
 
@@ -1048,7 +1048,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EL9y2gdesAcPiPmoyFKABToiui3RkXewiKxdTMmes34ZdNf`
-- **Price:** 0.01243253 TAO
+- **Price:** 0.012429871 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1071,7 +1071,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:14*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:34*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 122 (Subnet 122)
 
@@ -1091,7 +1091,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HVPptMPpMx3jUtUEjUfB8zLKkNM4fPnt4CLYT5Gc3BYzRX4`
-- **Price:** 0.001696589 TAO
+- **Price:** 0.001696348 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1114,7 +1114,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:14*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:35*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 123 (Subnet 123)
 
@@ -1134,7 +1134,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5GxsywPcZyWVYYJ7iuJpfmtujaA695M4FMCiqNRRcqNba82o`
-- **Price:** 0.009515916 TAO
+- **Price:** 0.009509793 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1157,7 +1157,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:15*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:35*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 124 (Subnet 124)
 
@@ -1177,7 +1177,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FF6pxRem43f7wCisfXevqYVURZtxxnC4kYTx4dnNAWqi9vg`
-- **Price:** 0.004296105 TAO
+- **Price:** 0.004292342 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1200,7 +1200,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:15*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:35*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 125 (Subnet 125)
 
@@ -1220,7 +1220,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5CFFokuo3Xkt2cgH3cnS3Nzm36zS4Lqg9KjTR99DdUKuydnx`
-- **Price:** 0.009560439 TAO
+- **Price:** 0.009736092 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1243,7 +1243,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:15*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:36*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 126 (Subnet 126)
 
@@ -1263,7 +1263,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FZ9STydZELztvGbfAiXbXVgiUurL2UHrUshJDjzHgMgm857`
-- **Price:** 0.001943398 TAO
+- **Price:** 0.0019644 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1286,7 +1286,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:16*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:36*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 127 (Subnet 127)
 
@@ -1306,7 +1306,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EKrpcqVNWfVfmKiq8v3LRrgb3E3ENBwYzmAziDhMK58gtb5`
-- **Price:** 0.002111735 TAO
+- **Price:** 0.002112539 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1329,7 +1329,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:16*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:36*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 128 (Subnet 128)
 
@@ -1349,7 +1349,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FpsgU3JFa8S2GnngH92J9vtHHi4PYgZzxGXnwdFNwEwt9h8`
-- **Price:** 0.002757045 TAO
+- **Price:** 0.002756459 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1372,7 +1372,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:17*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:37*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 12 (Subnet 12)
 
@@ -1392,7 +1392,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5ELzhHvgUqmnAYs74vFWjMMehXNeHkRtkreAa3g8QQS96PCp`
-- **Price:** 0.006159274 TAO
+- **Price:** 0.00615919 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1415,7 +1415,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:38*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:00*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 13 (Subnet 13)
 
@@ -1435,7 +1435,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HBswBt1A9Ahx6U76abXXGd7VmabmCNBGhSK2vrP71GSxtgZ`
-- **Price:** 0.008740401 TAO
+- **Price:** 0.008740419 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1458,7 +1458,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:38*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:00*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 14 (Subnet 14)
 
@@ -1478,7 +1478,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5Cf4LPRv6tiyuFsfLRQaFYEEn3zJRGi4bAE9DwbbKmbCSHpV`
-- **Price:** 0.010972386 TAO
+- **Price:** 0.010971567 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1501,7 +1501,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:38*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:00*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 15 (Subnet 15)
 
@@ -1521,7 +1521,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FNJuoghxzELCwcNoRTS8n6L8acwgpN1RYRPSJwNxbDWV8Dm`
-- **Price:** 0.001982587 TAO
+- **Price:** 0.001983665 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1544,7 +1544,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:39*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:01*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 16 (Subnet 16)
 
@@ -1564,7 +1564,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FRfiDbLxWAiac97ig4c5mgkb5yxSUVJDijmwJxw5RE5Ew9g`
-- **Price:** 0.002641066 TAO
+- **Price:** 0.002641343 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1587,7 +1587,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:39*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:01*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 17 (Subnet 17)
 
@@ -1607,7 +1607,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5E7eSeRr2aHzCV7SkY4a2Pi5NXHrU4anZz3phEQgn4HCen2B`
-- **Price:** 0.013089384 TAO
+- **Price:** 0.013082135 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1630,7 +1630,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:40*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:01*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 18 (Subnet 18)
 
@@ -1650,7 +1650,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HdrwVQQbMa8Wh271PDzvMHmM44wYM5wfnXCW3o97gDisuaY`
-- **Price:** 0.007641925 TAO
+- **Price:** 0.007623264 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1673,7 +1673,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:40*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:02*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 19 (Subnet 19)
 
@@ -1693,7 +1693,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5CK49hDJcseEk1V7iB1dmmztdw4igafhxLsVN82VtUVAQRfC`
-- **Price:** 0.011390748 TAO
+- **Price:** 0.01139055 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1716,7 +1716,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:40*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:02*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 1 (Subnet 1)
 
@@ -1736,7 +1736,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HCFWvRqzSHWRPecN7q8J6c7aKQnrCZTMHstPv39xL1wgDHh`
-- **Price:** 0.009959384 TAO
+- **Price:** 0.009968549 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1759,7 +1759,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:34*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:08:56*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 20 (Subnet 20)
 
@@ -1779,7 +1779,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EALa14jRfwHf69ZbNyFLxsPrZgZ47T2qhYxGjXxRM1qriNk`
-- **Price:** 0.002184392 TAO
+- **Price:** 0.002184109 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1802,7 +1802,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:40*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:02*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 21 (Subnet 21)
 
@@ -1822,7 +1822,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5GsHpHeCGhxstoEEZTR64VUashnDP4n7ir7LbNdRfXpkMU7R`
-- **Price:** 0.002137182 TAO
+- **Price:** 0.002137172 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1845,7 +1845,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:41*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:03*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 22 (Subnet 22)
 
@@ -1865,7 +1865,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5CUu1QhvrfyMDBELUPJLt4c7uJFbi7TKqDHkS1Zz41oD4dyP`
-- **Price:** 0.002998767 TAO
+- **Price:** 0.002998667 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1888,7 +1888,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:41*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:03*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 23 (Subnet 23)
 
@@ -1908,7 +1908,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HN1QZq7MyGnutpToCZGdiabP3D339kBjKXfjb1YFaHacdta`
-- **Price:** 0.002198142 TAO
+- **Price:** 0.002198066 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1931,7 +1931,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:42*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:03*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 24 (Subnet 24)
 
@@ -1951,7 +1951,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FpX2DN3A38JzXfEDZwBsDhCM527L6BDPi6MKGeXvGxFPipx`
-- **Price:** 0.001849055 TAO
+- **Price:** 0.001848989 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -1974,7 +1974,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:42*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:04*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 25 (Subnet 25)
 
@@ -1994,7 +1994,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5F6aRdsBHajN2NhZHBTB6ibBFu7YuZZEWruWzB8x6B6GiZ4D`
-- **Price:** 0.003079367 TAO
+- **Price:** 0.003079404 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2017,7 +2017,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:42*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:04*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 26 (Subnet 26)
 
@@ -2037,7 +2037,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FnLxqpzUFgrzW8aLjR5oYB8BUUS7XN9efw3N3diPpaxmTgt`
-- **Price:** 0.003784753 TAO
+- **Price:** 0.003779727 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2060,7 +2060,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:43*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:04*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 27 (Subnet 27)
 
@@ -2080,7 +2080,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5Cyfk5Jjee6uCafjZyUUjtKd7Q4qh1yJ48Ts7bkT9xXaDqe1`
-- **Price:** 0.002909221 TAO
+- **Price:** 0.002909018 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2103,7 +2103,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:43*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:05*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 28 (Subnet 28)
 
@@ -2123,7 +2123,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5Ca8L8PkbqXUtzohKtSM3i1naGQxANGLx51kJsEPNB14Admz`
-- **Price:** 0.003009714 TAO
+- **Price:** 0.003016949 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2146,7 +2146,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:43*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:05*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 29 (Subnet 29)
 
@@ -2166,7 +2166,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HHHHHzgLnYRvnKkHd45cRUDMHXTSwx7MjUzxBrKbY4JfZWn`
-- **Price:** 0.003098254 TAO
+- **Price:** 0.003098213 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2189,7 +2189,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:43*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:05*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 2 (Subnet 2)
 
@@ -2209,7 +2209,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5CFxLBvpyQq3TCP7zLcu8dLcPBxhA6MdLvXiCyvJVojuK17J`
-- **Price:** 0.003640854 TAO
+- **Price:** 0.003642142 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2232,7 +2232,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:34*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:08:57*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 30 (Subnet 30)
 
@@ -2252,7 +2252,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5DcErZoVeG7ZShXwKFgJURuGXmdAVwmYzyvLAgpPjrPznDMB`
-- **Price:** 0.004552274 TAO
+- **Price:** 0.004552495 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2275,7 +2275,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:44*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:06*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 31 (Subnet 31)
 
@@ -2295,7 +2295,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5CwLjwPdkwM9Rhia5VA5WSDVsL5FKWH24j5Tb96WnuUnqcst`
-- **Price:** 0.001801162 TAO
+- **Price:** 0.001801101 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2318,7 +2318,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:44*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:06*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 32 (Subnet 32)
 
@@ -2338,7 +2338,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5DWgkCSvq4brWSNLDU9FBgTk1ZpAQ2y6t3ky97CvEVuS9Qad`
-- **Price:** 0.002439301 TAO
+- **Price:** 0.002439339 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2361,7 +2361,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:44*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:06*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 33 (Subnet 33)
 
@@ -2381,7 +2381,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HinUfk5SqBUAbkMtgdNoum3VJvwrLgdvwW5sbXA1UPYZ8uB`
-- **Price:** 0.015001451 TAO
+- **Price:** 0.015000815 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2404,7 +2404,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:45*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:06*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 34 (Subnet 34)
 
@@ -2424,7 +2424,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HjBSeeoz52CLfvDWDkzupqrYLHz1oToDPHjdmJjc4TF68LQ`
-- **Price:** 0.018590323 TAO
+- **Price:** 0.01856325 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2447,7 +2447,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:45*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:07*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 35 (Subnet 35)
 
@@ -2467,7 +2467,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EsmkLf4VnpgNM31syMjAWsUrQdW2Yu5xzWbv6oDQydP9vVx`
-- **Price:** 0.010965697 TAO
+- **Price:** 0.010967669 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2490,7 +2490,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:45*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:07*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 36 (Subnet 36)
 
@@ -2510,7 +2510,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5DPtMdkMau8G8fGbPxdYSKCBo94oC7mDyHKMvVdNdsLVT3EF`
-- **Price:** 0.004771101 TAO
+- **Price:** 0.004690678 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2533,7 +2533,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:46*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:08*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 37 (Subnet 37)
 
@@ -2553,7 +2553,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5DXqqdrvu5FK3dASRVTCdGPZKx4Q9nkAZZSmibKG6PEEeW4j`
-- **Price:** 0.002946393 TAO
+- **Price:** 0.002946749 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2576,7 +2576,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:46*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:08*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 38 (Subnet 38)
 
@@ -2596,7 +2596,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EFJ7mEVyjxT3iXqxuHyMMuGgJKFt85tb5s4vEvnCTpSoP3w`
-- **Price:** 0.002362118 TAO
+- **Price:** 0.002362142 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2619,7 +2619,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:46*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:08*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 39 (Subnet 39)
 
@@ -2639,7 +2639,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5G3qVaXzKMPDm5AJ3dpzbpUC27kpccBvDwzSWXrq8M6qMmbC`
-- **Price:** 0.009263449 TAO
+- **Price:** 0.009262765 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2662,7 +2662,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:47*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:08*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 3 (Subnet 3)
 
@@ -2682,7 +2682,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HdTZQ6UXD7MWcRsMeExVwqAKKo4UwomUd662HvtXiZXkxmv`
-- **Price:** 0.026281552 TAO
+- **Price:** 0.026273984 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2705,7 +2705,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:35*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:08:57*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 40 (Subnet 40)
 
@@ -2725,7 +2725,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5F9Qvcz22Fwq4cm58o2bShiL6n8BnJmhqXB1cispBpqRfN6w`
-- **Price:** 0.002184465 TAO
+- **Price:** 0.002184397 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2748,7 +2748,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:47*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:09*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 41 (Subnet 41)
 
@@ -2768,7 +2768,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FCSevLkofmKZRixMawp6jyyjBty1AeSCLa7N5Fv892DYkXX`
-- **Price:** 0.021007872 TAO
+- **Price:** 0.020865554 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2791,7 +2791,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:47*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:09*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 42 (Subnet 42)
 
@@ -2811,7 +2811,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5Gbdb5s2WrRaFXTgMUiVNBKACe3cgSLwZNyK2Vwvjfvf6jUJ`
-- **Price:** 0.002718187 TAO
+- **Price:** 0.002710806 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2834,7 +2834,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:48*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:09*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 43 (Subnet 43)
 
@@ -2854,7 +2854,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HjMs5JDrLH3Hknmfm1gDq7nFYAv6M7t9v3EWMctSRXJS9HC`
-- **Price:** 0.009489113 TAO
+- **Price:** 0.009488779 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2877,7 +2877,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:48*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:10*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 44 (Subnet 44)
 
@@ -2897,7 +2897,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FsREvyUXSZWYRqVyQLDdpYmZZPnkhZyW6HjooozKP1nQkwu`
-- **Price:** 0.016104451 TAO
+- **Price:** 0.016099061 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2920,7 +2920,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:48*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:10*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 45 (Subnet 45)
 
@@ -2940,7 +2940,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5Hmiaz4bLLbLw4LgTksJvJYPYp1XJ1GYkUfRiv4HGXX674DD`
-- **Price:** 0.005274814 TAO
+- **Price:** 0.005182838 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -2963,7 +2963,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:49*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:10*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 46 (Subnet 46)
 
@@ -2983,7 +2983,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5CDnZ6oeCrXKoL2VJQuQFxSfr49yQWz2DvdaYx47hr9QdM6D`
-- **Price:** 0.010240422 TAO
+- **Price:** 0.010109101 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3006,7 +3006,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:49*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:11*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 47 (Subnet 47)
 
@@ -3026,7 +3026,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5D5Yw1NzfxLDQDP8D9jthkTNnJRKBfKSRTwnVBvg6RQymonx`
-- **Price:** 0.001868021 TAO
+- **Price:** 0.001844778 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3049,7 +3049,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:49*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:11*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 48 (Subnet 48)
 
@@ -3069,7 +3069,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5D2Qc9ud7vTJrPzk8mT1ruY8oV8UaDP3ttepD7zVNNi943ch`
-- **Price:** 0.011602054 TAO
+- **Price:** 0.011621137 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3092,7 +3092,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:50*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:11*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 49 (Subnet 49)
 
@@ -3112,7 +3112,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5C6z6jXv1iuwKMwfuWrZgPrrtxQZh7YKYThLXoMA2VgFG8w2`
-- **Price:** 0.001392156 TAO
+- **Price:** 0.001392106 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3135,7 +3135,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:50*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:12*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 4 (Subnet 4)
 
@@ -3155,7 +3155,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5Hp18g9P8hLGKp9W3ZDr4bvJwba6b6bY3P2u3VdYf8yMR8FM`
-- **Price:** 0.045304723 TAO
+- **Price:** 0.045329017 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3178,7 +3178,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:35*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:08:57*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 50 (Subnet 50)
 
@@ -3198,7 +3198,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5DxyiWpGqN5xXiczXcEGph51BcgTqcYKD5GKZqoACuc2sJkD`
-- **Price:** 0.009142336 TAO
+- **Price:** 0.009046941 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3221,7 +3221,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:50*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:12*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 51 (Subnet 51)
 
@@ -3241,7 +3241,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FTVrwEpjvpNeKwczFtYjs62GHKKLHLCdqCThtj2unZouKg1`
-- **Price:** 0.055612682 TAO
+- **Price:** 0.055610282 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3264,7 +3264,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:51*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:12*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 52 (Subnet 52)
 
@@ -3284,7 +3284,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EgfUiH6A99dhihMzp7eMM8UDkvmFjCWgM5gnpBN8UgLrVuz`
-- **Price:** 0.007542294 TAO
+- **Price:** 0.007542188 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3307,7 +3307,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:51*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:13*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 53 (Subnet 53)
 
@@ -3327,7 +3327,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5F2HTUqtk9VWQwXkkUX9oFSXUkAib74qw7s3W7KyZP88AmYe`
-- **Price:** 0.00839049 TAO
+- **Price:** 0.008390339 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3350,7 +3350,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:52*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:13*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 54 (Subnet 54)
 
@@ -3370,7 +3370,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5DUB7kNLvvx8Dj7D8tn54N1C7Xok6GodNPQE2WECCaL9Wgpr`
-- **Price:** 0.004301295 TAO
+- **Price:** 0.004324221 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3393,7 +3393,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:52*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:13*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 55 (Subnet 55)
 
@@ -3413,7 +3413,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HmHiVeddZPNqjUJLccRiq5AVMTVaNYif5EQNrE5fumcf46r`
-- **Price:** 0.001998807 TAO
+- **Price:** 0.001998533 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3436,7 +3436,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:52*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:14*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 56 (Subnet 56)
 
@@ -3456,7 +3456,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5GU4Xkd3dCGTU3s8VLcHGc5wsD5M8XyxDca5yDQhYm1mVXFu`
-- **Price:** 0.032087825 TAO
+- **Price:** 0.03208585 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3479,7 +3479,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:52*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:14*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 57 (Subnet 57)
 
@@ -3499,7 +3499,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5GmhjCqDTsRcKqPFw4FDig8tVBfFGNrwP8ywe5En5hnELwDQ`
-- **Price:** 0.002968518 TAO
+- **Price:** 0.002966507 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3522,7 +3522,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:53*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:14*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 58 (Subnet 58)
 
@@ -3542,7 +3542,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5DyEYZ2pB3bP6BN8Xpo5ova3TEPiT82j5oHXqgQ8csKE9stH`
-- **Price:** 0.002292689 TAO
+- **Price:** 0.002292611 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3565,7 +3565,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:53*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:15*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 59 (Subnet 59)
 
@@ -3585,7 +3585,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EF9dnwEup1QD1vAg6j9Z7yqYKbpQSMK2Rax2JhhUEFjNdve`
-- **Price:** 0.002068685 TAO
+- **Price:** 0.002071951 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3608,7 +3608,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:54*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:15*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 5 (Subnet 5)
 
@@ -3628,7 +3628,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5GZ2KuT2TtLbYTtsMcgAtazo6KQ4bc57ykZgyQv9oit3y7iq`
-- **Price:** 0.024177422 TAO
+- **Price:** 0.024176519 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3651,7 +3651,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:35*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:08:58*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 60 (Subnet 60)
 
@@ -3671,7 +3671,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5CXLwkK1Scd1uiMUrXYjJUTTPxqqyH2FTJQNLp9uXQhA9rhR`
-- **Price:** 0.002011159 TAO
+- **Price:** 0.002015452 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3694,7 +3694,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:54*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:15*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 61 (Subnet 61)
 
@@ -3714,7 +3714,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5ECEsYL82fbXx9KfTZy7G2KXSurnScciJyAVMHZjekc8jUbn`
-- **Price:** 0.003352369 TAO
+- **Price:** 0.003350993 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3737,7 +3737,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:54*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:15*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 62 (Subnet 62)
 
@@ -3757,7 +3757,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EsNzkZ3DwDqCsYmSJDeGXX51dQJd5broUCH6dbDjvkTcicD`
-- **Price:** 0.069354263 TAO
+- **Price:** 0.071446758 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3780,7 +3780,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:54*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:16*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 63 (Subnet 63)
 
@@ -3800,7 +3800,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5GmpedVP2r9haksUBD743wek8t89jMz96RTkV2zkVdRR4e1B`
-- **Price:** 0.007452945 TAO
+- **Price:** 0.007452646 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3823,7 +3823,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:55*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:16*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 64 (Subnet 64)
 
@@ -3843,7 +3843,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5F4Q3cA8EvApwhBj4eLjbb1meiLtzKgWhkF5JLRMNhRfqULc`
-- **Price:** 0.079340434 TAO
+- **Price:** 0.079364381 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3866,7 +3866,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:55*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:17*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 65 (Subnet 65)
 
@@ -3886,7 +3886,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5GHrTeuFnJYjNJx773URbYb9Pk3bRRDiJHJFBNECZpjGqZPY`
-- **Price:** 0.00275427 TAO
+- **Price:** 0.002754174 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3909,7 +3909,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:55*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:17*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 66 (Subnet 66)
 
@@ -3929,7 +3929,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HdK1zyMbMoq1NM2sDL2Len9h2CsmBcVbrFthePccMN5R8jU`
-- **Price:** 0.002405116 TAO
+- **Price:** 0.002405012 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3952,7 +3952,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:56*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:17*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 67 (Subnet 67)
 
@@ -3972,7 +3972,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5Dccjeya7SXuv5gAqYEzz3xMUkHAKvEY1obRET4U47uzf5oZ`
-- **Price:** 0.003149809 TAO
+- **Price:** 0.003151112 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -3995,7 +3995,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:56*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:17*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 68 (Subnet 68)
 
@@ -4015,7 +4015,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5CSuegTfX4Gf7SoXXJoPEyMEicXBjm5Z1QgoPPcU424rQbbb`
-- **Price:** 0.010113403 TAO
+- **Price:** 0.010113316 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4038,7 +4038,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:56*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:18*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 69 (Subnet 69)
 
@@ -4058,7 +4058,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5DPbvQvifGf4JEgUfXwZz1htsVK7onAurspVfehhWSqZEDuA`
-- **Price:** 0.002273982 TAO
+- **Price:** 0.002273896 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4081,7 +4081,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:57*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:18*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 6 (Subnet 6)
 
@@ -4101,7 +4101,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5CfSg4e23Z3aTXvc2XZie8ZE1xkqRPoyVRFdWUuyyjGxJrMA`
-- **Price:** 0.003190018 TAO
+- **Price:** 0.003189553 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4124,7 +4124,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:36*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:08:58*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 70 (Subnet 70)
 
@@ -4144,7 +4144,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5GrypYms8VDs2otn6D4bH4tj3LyuXhWfcJHUJjdRGk1BXM96`
-- **Price:** 0.001848928 TAO
+- **Price:** 0.00184886 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4167,7 +4167,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:57*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:18*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 71 (Subnet 71)
 
@@ -4187,7 +4187,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FNVgRnrxMibhcBGEAaajGrYjsaCn441a5HuGUBUNnxEBLo9`
-- **Price:** 0.007686475 TAO
+- **Price:** 0.007748929 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4210,7 +4210,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:57*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:19*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 72 (Subnet 72)
 
@@ -4230,7 +4230,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5Fmvr2VJs9EpyR5NbNpLTKgEXS8fRnQA6F349xqswsz6VL88`
-- **Price:** 0.002667468 TAO
+- **Price:** 0.002667119 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4253,7 +4253,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:58*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:19*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 73 (Subnet 73)
 
@@ -4273,7 +4273,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5Dnkprjf9fUrvWq3ZfFP8WrUNSjQws6UoHkbDfR1bQK8pFhW`
-- **Price:** 0.003375062 TAO
+- **Price:** 0.003378064 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4296,7 +4296,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:58*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:19*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 74 (Subnet 74)
 
@@ -4316,7 +4316,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5Dnffftud49iScqvvymjuvS4D1MP4ApenAQG2R5wg4bXGH7L`
-- **Price:** 0.003348563 TAO
+- **Price:** 0.003357057 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4339,7 +4339,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:58*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:20*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 75 (Subnet 75)
 
@@ -4359,7 +4359,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5G1Qj93Fy22grpiGKq6BEvqqmS2HVRs3jaEdMhq9absQzs6g`
-- **Price:** 0.017863006 TAO
+- **Price:** 0.017903676 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4382,7 +4382,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:59*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:20*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 76 (Subnet 76)
 
@@ -4402,7 +4402,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5G1YoCREZy3M7urxmiuaWoN3CkGuq54s267f7NJQCXSRJ1zm`
-- **Price:** 0.001815809 TAO
+- **Price:** 0.001814489 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4425,7 +4425,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:59*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:20*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 77 (Subnet 77)
 
@@ -4445,7 +4445,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5DqALXRZumwGDyaJWRJ2fMzBqPxEuoqWypnexcwuYMDdohsE`
-- **Price:** 0.00871376 TAO
+- **Price:** 0.008712872 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4468,7 +4468,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:59*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:20*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 78 (Subnet 78)
 
@@ -4488,7 +4488,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HEFmnv5f8jW24xb6Z61xsaj4mRPGxUybxuJ88uiTej98bzJ`
-- **Price:** 0.001931571 TAO
+- **Price:** 0.001888252 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4511,7 +4511,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:00*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:21*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 79 (Subnet 79)
 
@@ -4531,7 +4531,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EWwdZB7qCCMaAso5Mzcks4UUcPxKYvpAj32t5Mg1v6HSxoF`
-- **Price:** 0.001907229 TAO
+- **Price:** 0.00190676 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4554,7 +4554,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:00*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:21*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 7 (Subnet 7)
 
@@ -4574,7 +4574,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EhJtTLTS8yrcStrcdBrynUmZHf8dmjFtNdoELyjETJXAmSr`
-- **Price:** 0.002373675 TAO
+- **Price:** 0.00237293 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4597,7 +4597,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:36*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:08:58*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 80 (Subnet 80)
 
@@ -4617,7 +4617,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HdqPPrNa5BRWKPCTXBRdhGmymRZtKrfs6ZouqFkJuogJC8v`
-- **Price:** 0.001938903 TAO
+- **Price:** 0.001938806 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4640,7 +4640,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:01*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:22*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 81 (Subnet 81)
 
@@ -4660,7 +4660,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5F9uEDDovurwEJihzZSpKypipVy84EEAPHTt3EfepTjcQfij`
-- **Price:** 0.009031438 TAO
+- **Price:** 0.009031175 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4683,7 +4683,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:01*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:22*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 82 (Subnet 82)
 
@@ -4703,7 +4703,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FCAjxt6tXMDMHEZM27gB4Fv57hLtoy5bzPAm8MxpPkXseCJ`
-- **Price:** 0.001922648 TAO
+- **Price:** 0.001889996 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4726,7 +4726,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:01*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:22*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 83 (Subnet 83)
 
@@ -4746,7 +4746,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EHGayLmiXfwz6oYmQFYmDz12RPXkhJw8Ty8RYVDeVZH9Q5L`
-- **Price:** 0.003621026 TAO
+- **Price:** 0.003620325 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4769,7 +4769,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:01*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:22*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 84 (Subnet 84)
 
@@ -4789,7 +4789,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HjH8ZqfoWG6SS6UTvLHEmQVBA6gjTCdpcy7wveoDGWSPZwk`
-- **Price:** 0.00253772 TAO
+- **Price:** 0.002541245 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4812,7 +4812,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:02*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:23*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 85 (Subnet 85)
 
@@ -4832,7 +4832,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FR392L6eKrTGwUjQurpxw89YUe7LzKANktDwRKLYYSgwxhb`
-- **Price:** 0.010858757 TAO
+- **Price:** 0.010856912 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4855,7 +4855,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:02*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:23*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 86 (Subnet 86)
 
@@ -4875,7 +4875,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5Fo2KqnBwKasMFj2Q1YrWGR2ryXbYAAW3LW6arZcHYUXNbaF`
-- **Price:** 0.001322692 TAO
+- **Price:** 0.001264755 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4898,7 +4898,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:02*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:23*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 87 (Subnet 87)
 
@@ -4918,7 +4918,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EZuTAUq5WtrpNwXusZpsiwcxSVDoVihzYXBnbf19oBrFktk`
-- **Price:** 0.001598146 TAO
+- **Price:** 0.001612577 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4941,7 +4941,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:03*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:24*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 88 (Subnet 88)
 
@@ -4961,7 +4961,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HK4vbGgLQdFKarN3hLVqNRbgQtQR5w3WTZ2tTnFHHLPgXpY`
-- **Price:** 0.002370144 TAO
+- **Price:** 0.002359993 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -4984,7 +4984,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:03*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:24*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 89 (Subnet 89)
 
@@ -5004,7 +5004,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FCN4P1KqFtsgBk29ABeDZuAnhrcHP2iTN2fG1kBefJBhBLd`
-- **Price:** 0.004943293 TAO
+- **Price:** 0.004943042 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -5027,7 +5027,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:03*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:24*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 8 (Subnet 8)
 
@@ -5047,7 +5047,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5F6tnxzAAxbhaWRmeUmB63JEM3VXBNSmqb3AwYJVDStQjw8y`
-- **Price:** 0.028423236 TAO
+- **Price:** 0.028422571 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -5070,7 +5070,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:36*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:08:59*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 90 (Subnet 90)
 
@@ -5090,7 +5090,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5DwAxRJyDfpWYLhgCnzhPDwTHuquAYw37TQbFTz4PaBFQezY`
-- **Price:** 0.001732687 TAO
+- **Price:** 0.001731084 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -5113,7 +5113,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:04*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:25*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 91 (Subnet 91)
 
@@ -5133,7 +5133,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5HgKuFuXiF5FED1fbMZgApXQej9CigbSL28AJBfajGxv3t5h`
-- **Price:** 0.001774647 TAO
+- **Price:** 0.001774515 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -5156,7 +5156,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:04*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:25*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 92 (Subnet 92)
 
@@ -5176,7 +5176,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5DCNqfcoAPBrb2htSqftp51tsM3dMzmod8tB6bES3ipzCQLm`
-- **Price:** 0.002102202 TAO
+- **Price:** 0.002102063 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -5199,7 +5199,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:04*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:25*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 93 (Subnet 93)
 
@@ -5219,7 +5219,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5DAoDtMxVqtMu2Nd5E7QhPEGXDMgrySvE1b3rRT5ARDhfNNK`
-- **Price:** 0.014294916 TAO
+- **Price:** 0.014607236 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -5242,7 +5242,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:05*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:26*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 94 (Subnet 94)
 
@@ -5262,7 +5262,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5GpW3hx1pyA2Hq8JQJCmQepnao7y1w8VqufycogyGMU4g5Yg`
-- **Price:** 0.001581961 TAO
+- **Price:** 0.001582138 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -5285,7 +5285,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:05*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:26*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 95 (Subnet 95)
 
@@ -5305,7 +5305,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5ExqqyEBXLpGwqy6sSVrauozhcyAKBaMz1y5x9wAYSk7n7HP`
-- **Price:** 0.002931592 TAO
+- **Price:** 0.002923359 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -5328,7 +5328,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:05*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:26*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 96 (Subnet 96)
 
@@ -5348,7 +5348,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5DWqMv5fvjjRLTmHgsb8tMSfraxX5rru9SvrLjuJNQA8h5yQ`
-- **Price:** 0.002338393 TAO
+- **Price:** 0.002338263 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -5371,7 +5371,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:06*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:27*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 97 (Subnet 97)
 
@@ -5391,7 +5391,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EyjzHqG7VsZmgdHHm5SnbdqWXFxiKKZyrfYyrUUeg9hFXNg`
-- **Price:** 0.00157969 TAO
+- **Price:** 0.00158014 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -5414,7 +5414,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:06*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:27*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 98 (Subnet 98)
 
@@ -5434,7 +5434,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5CfphqMQ1B9Cenj5KDrPa8C6Fbx5w7ZtibaYiDfaaaVA5CAz`
-- **Price:** 0.003708225 TAO
+- **Price:** 0.003707975 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -5457,7 +5457,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:06*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:27*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 99 (Subnet 99)
 
@@ -5477,7 +5477,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EqM2tLsej2nKdwh9ye9DEW77CA9G9gXN2AkhCDt8KjCaPP7`
-- **Price:** 0.00205392 TAO
+- **Price:** 0.00205368 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -5500,7 +5500,7 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:17:07*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:09:28*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
 # Subnet 9 (Subnet 9)
 
@@ -5520,7 +5520,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5FsbubeciqtB5Nik3umL2iD4fG8FcC9GbT9nHJfXMj4mJJZ9`
-- **Price:** 0.019361427 TAO
+- **Price:** 0.019361148 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -5543,5 +5543,5 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 13:16:37*
+*Profile generated from Bittensor blockchain data on 2025-10-19 14:08:59*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
