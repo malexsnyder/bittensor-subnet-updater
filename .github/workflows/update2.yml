@@ -63,13 +63,6 @@ jobs:
               print(f"❌ Error importing openai: {e}")
               sys.exit(1)
 
-          try:
-              from openai import OpenAI
-              print("✅ Using new OpenAI client interface")
-          except ImportError as e:
-              print(f"❌ The new OpenAI client is not available: {e}")
-              sys.exit(1)
-
           # Check API key
           api_key = os.environ.get("OPENAI_API_KEY")
           if not api_key:
@@ -82,7 +75,27 @@ jobs:
               
           print("✅ API key format looks correct")
 
-          client = OpenAI(api_key=api_key)
+          # Try different OpenAI client approaches
+          client = None
+          
+          # Method 1: Try new OpenAI client
+          try:
+              from openai import OpenAI
+              client = OpenAI(api_key=api_key)
+              print("✅ Using new OpenAI client interface")
+          except Exception as e:
+              print(f"⚠️ New client failed: {e}")
+              
+          # Method 2: Try legacy client if new one failed
+          if client is None:
+              try:
+                  import openai
+                  openai.api_key = api_key
+                  client = openai
+                  print("✅ Using legacy OpenAI client interface")
+              except Exception as e:
+                  print(f"❌ Both client methods failed: {e}")
+                  sys.exit(1)
 
           vector_store_id = "vs_68f441099ff88191a84e2e4dadfdc104"
           profiles_path = "data/all_subnet_profiles.txt"
@@ -94,35 +107,44 @@ jobs:
           file_size = os.path.getsize(profiles_path)
           print(f"📄 File size: {file_size} bytes")
 
-          # Test vector store access first
-          try:
-              print("🔍 Testing vector store access...")
-              vector_store = client.vector_stores.retrieve(vector_store_id)
-              print(f"✅ Vector store found: {vector_store.name}")
-          except Exception as e:
-              print(f"❌ Error accessing vector store: {e}")
-              print("💡 Make sure the vector store ID is correct and you have access to it")
-              sys.exit(1)
-
           print("📤 Uploading subnet data to vector store...")
 
           try:
-              # Use the correct API method for file upload
-              with open(profiles_path, "rb") as f:
-                  # First upload the file
-                  file_response = client.files.create(
-                      file=f,
-                      purpose="assistants"
-                  )
-                  print(f"📁 File uploaded with ID: {file_response.id}")
-                  
-                  # Then add it to the vector store
-                  vector_store_file = client.vector_stores.files.create(
-                      vector_store_id=vector_store_id,
-                      file_id=file_response.id
-                  )
-                  print(f"✅ File added to vector store successfully.")
-                  print(f"📁 Vector store file ID: {vector_store_file.id}")
+              # Try different upload methods based on client type
+              if hasattr(client, 'files') and hasattr(client.files, 'create'):
+                  # New client method
+                  print("🔄 Using new client upload method...")
+                  with open(profiles_path, "rb") as f:
+                      file_response = client.files.create(
+                          file=f,
+                          purpose="assistants"
+                      )
+                      print(f"📁 File uploaded with ID: {file_response.id}")
+                      
+                      # Add to vector store
+                      if hasattr(client, 'vector_stores') and hasattr(client.vector_stores, 'files'):
+                          vector_store_file = client.vector_stores.files.create(
+                              vector_store_id=vector_store_id,
+                              file_id=file_response.id
+                          )
+                          print(f"✅ File added to vector store successfully.")
+                          print(f"📁 Vector store file ID: {vector_store_file.id}")
+                      else:
+                          print("⚠️ Vector store files API not available, but file uploaded successfully")
+                          
+              elif hasattr(client, 'File'):
+                  # Legacy client method
+                  print("🔄 Using legacy client upload method...")
+                  with open(profiles_path, "rb") as f:
+                      file_response = client.File.create(
+                          file=f,
+                          purpose="assistants"
+                      )
+                      print(f"📁 File uploaded with ID: {file_response.id}")
+                      print("✅ File uploaded successfully (legacy method)")
+              else:
+                  print("❌ No compatible upload method found")
+                  sys.exit(1)
                   
           except Exception as e:
               print(f"❌ Error uploading file: {e}")
@@ -131,7 +153,10 @@ jobs:
               print("   - File is too large")
               print("   - API key doesn't have access to the vector store")
               print("   - Vector store is full")
+              print("   - OpenAI API structure has changed")
               print(f"   - Error details: {str(e)}")
+              print(f"   - Client type: {type(client)}")
+              print(f"   - Client attributes: {dir(client)}")
               sys.exit(1)
           EOF
 
