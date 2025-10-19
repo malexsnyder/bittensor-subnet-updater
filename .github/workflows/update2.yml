@@ -1,66 +1,31 @@
-name: Bittensor Subnet Updater (update2)
-
-on:
-  schedule:
-    - cron: "0 * * * *"  # Runs every hour
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  update:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip uninstall -y openai || true
-          pip install --upgrade "openai>=1.40.0"
-          pip install requests pandas bittensor faiss-cpu
-          python -m pip show openai
-
-      - name: Fetch latest Bittensor subnet data
-        env:
-          OPENAI_API_KEY: ${{ secrets.BITTENSOR_SUBNETS }}
-        run: |
-          python scripts/fetch_subnets_bt.py
-
-      - name: Build subnet profiles
-        run: |
-          python scripts/build_profiles_local.py
-
-      - name: Combine profiles into a single file
-        run: |
-          cat data/profiles/*.md > data/all_subnet_profiles.txt
-          echo "📊 Combined profiles file size: $(wc -c < data/all_subnet_profiles.txt) bytes"
-          echo "📄 First 200 characters:"
-          head -c 200 data/all_subnet_profiles.txt
-
       - name: Upload latest subnet data to OpenAI Vector Store
         env:
           OPENAI_API_KEY: ${{ secrets.BITTENSOR_SUBNETS }}
         run: |
-          python scripts/upload_to_vector_store.py
+          python - <<'EOF'
+          import openai, os
 
-      - name: Commit and push updates
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main || true
-          git add -A
-          git commit -m "Auto-update $(date -u '+%Y-%m-%dT%H:%M:%SZ')" || echo "No changes"
-          git push origin main || echo "Push failed"
+          openai.api_key = os.environ["OPENAI_API_KEY"]
 
-# 
+          vector_store_id = "vs_68f441099ff88191a84e2e4dadfdc104"
+          profiles_path = "data/all_subnet_profiles.txt"
+
+          if not os.path.exists(profiles_path):
+              raise FileNotFoundError(f"{profiles_path} not found.")
+
+          print("Uploading subnet data to vector store...")
+
+          with open(profiles_path, "rb") as f:
+              try:
+                  # For new SDK versions
+                  openai.beta.vector_stores.files.create(
+                      vector_store_id=vector_store_id,
+                      file=f
+                  )
+              except AttributeError:
+                  # For older SDKs (fallback)
+                  print("⚠️ Using legacy upload method")
+                  openai.File.create(file=f, purpose="assistants")
+
+          print("✅ Uploaded subnet data successfully (or fallback used).")
+          EOF
