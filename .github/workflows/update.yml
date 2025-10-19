@@ -49,17 +49,20 @@ jobs:
 
           openai.api_key = os.environ["OPENAI_API_KEY"]
 
+          # ✅ Replace this with your actual vector store ID
+          vector_store_id = "vs_68f441099ff88191a84e2e4dadfdc104"
           profiles_path = "data/all_subnet_profiles.txt"
+
           if not os.path.exists(profiles_path):
               raise FileNotFoundError(f"{profiles_path} not found.")
 
           with open(profiles_path, "rb") as f:
-              result = openai.VectorStore.create(
-                  name="bittensor_subnets_vector",
+              openai.VectorStoreFiles.create_and_poll(
+                  vector_store_id=vector_store_id,
                   files=[f],
               )
 
-          print("✅ Uploaded subnet data to OpenAI vector store successfully.")
+          print("✅ Updated existing vector store with latest subnet data successfully.")
           EOF
 
       - name: Commit and push updates
