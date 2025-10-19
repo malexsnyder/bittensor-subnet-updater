@@ -16,7 +16,7 @@
 - **Exists:** True
 - **Active:** True
 - **Owner Hotkey:** `5EvNESR7DfSMmdwJ3crtBW1ENAhq3f99X4FCbTi1hDUNCWAW`
-- **Price:** 0.006139863 TAO
+- **Price:** 0.006139322 TAO
 
 ## Hyperparameters
 - No hyperparameters available
@@ -39,5 +39,5 @@
 **Official Link:** *[To be filled by AI agent]*
 
 ---
-*Profile generated from Bittensor blockchain data on 2025-10-19 16:11:22*
+*Profile generated from Bittensor blockchain data on 2025-10-19 17:08:37*
 *Source: Bittensor Subtensor SDK (Finney network) - Public data only*
