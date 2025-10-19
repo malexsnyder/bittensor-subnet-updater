@@ -24,7 +24,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install --upgrade openai==1.40.0 requests pandas bittensor faiss-cpu
+          pip uninstall -y openai || true
+          pip install "openai>=1.40.0"
+          pip install requests pandas bittensor faiss-cpu
 
       - name: Fetch latest Bittensor subnet data
         env:
@@ -45,10 +47,12 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.BITTENSOR_SUBNETS }}
         run: |
           python - <<'EOF'
-          from openai import OpenAI
           import os
+          from openai import OpenAI
 
+          print("Initializing OpenAI client...")
           client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+
           vector_store_id = "vs_68f441099ff88191a84e2e4dadfdc104"
           profiles_path = "data/all_subnet_profiles.txt"
 
@@ -58,12 +62,15 @@ jobs:
           print("Uploading subnet data to vector store...")
 
           with open(profiles_path, "rb") as f:
-              client.vector_stores.files.upload_and_poll(
-                  vector_store_id=vector_store_id,
-                  file=f
-              )
-
-          print("✅ Uploaded subnet data to OpenAI vector store successfully.")
+              try:
+                  client.vector_stores.files.upload_and_poll(
+                      vector_store_id=vector_store_id,
+                      file=f
+                  )
+                  print("✅ Uploaded subnet data to OpenAI vector store successfully.")
+              except Exception as e:
+                  print(f"❌ Upload failed: {e}")
+                  raise
           EOF
 
       - name: Commit and push updates
