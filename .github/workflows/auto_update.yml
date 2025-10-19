@@ -1,47 +1,42 @@
-name: Auto Update Bittensor Subnets
+name: Bittensor Subnet Updater
 
 on:
   schedule:
-    # Run every hour at the top of the hour
-    - cron: "0 * * * *"
-  workflow_dispatch: # Allow manual triggering
+    - cron: "0 * * * *"  # Runs every hour
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-  update-subnets:
+  update:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-        
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install bittensor requests openai
-        
-    - name: Fetch subnet data from Bittensor blockchain
-      run: |
-        python scripts/fetch_subnets_bt.py
-        
-    - name: Generate subnet profiles
-      run: |
-        python scripts/build_profiles_local.py
-        
-    - name: Upload profiles to OpenAI
-      env:
-        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      run: |
-        python scripts/upload_to_openai.py
-        
-    - name: Commit and push changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add data/
-        git diff --staged --quiet || git commit -m "Auto-update subnet data and profiles [skip ci]"
-        git push
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pandas bittensor openai
+
+      - name: Fetch Bittensor subnet data
+        env:
+          OPENAI_API_KEY: ${{ secrets.Bittensor_Subnets }}
+        run: |
+          python scripts/fetch_subnets_bt.py
+
+      - name: Commit and push updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main || true
+          git add -A
+          git commit -m "Auto-update $(date -u +"%Y-%m-%dT%H:%M:%SZ")" || echo "No changes"
+          git push origin main || echo "Push failed"
