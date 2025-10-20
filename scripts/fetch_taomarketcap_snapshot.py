@@ -261,12 +261,19 @@ def upload_to_vector_store(file_path):
         client = OpenAI(api_key=api_key)
         print("✅ Created OpenAI client")
         
+        # Show file content preview before upload
+        print("📄 File content preview (first 500 chars):")
+        with open(file_path, "r", encoding="utf-8") as f:
+            content_preview = f.read()[:500]
+            print(content_preview)
+            print("...")
+        
         # Upload file using the working method
         print("📤 Uploading file to OpenAI...")
         with open(file_path, "rb") as f:
             file_response = client.files.create(
                 file=f,
-                purpose="assistants"
+                purpose="assistants"  # Back to assistants for vector store compatibility
             )
             print(f"✅ File uploaded successfully with ID: {file_response.id}")
         
